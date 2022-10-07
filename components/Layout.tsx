@@ -12,13 +12,13 @@ export default function Layout({ children }: LayoutProps) {
       <Head>
         <link rel="stylesheet" href="global.css" />
       </Head>
-      <header><a href="/">💍 Ole + Nae</a></header>
+      <header><a href="/">SAVE THE DATE</a></header>
       <main>
         {children}
       </main>
-      <footer>
-        <hr />
-      </footer>
+      {/* <footer>
+        <p>Made by <a href="https://github.com/OleSkaar/">Ole Skaar</a> with <a href="https://fresh.deno.dev/">Fresh.</a></p>
+      </footer> */}
     </>
   );
 }

@@ -1,22 +1,82 @@
-h1 {
-    font-size: clamp(40px, 10vw, 96px);
-    font-weight: 900;
+@font-face {
+    font-family: GoudyBookletter1911-Regular;
+    src: url("/fonts/GoudyBookletter1911-Regular.ttf");
 }
 
-h1 + p {
-    font-size: 24px;
+h1 {
+    font-family: GoudyBookletter1911-Regular;
+    font-size: clamp(50px, 5vw, 70px);
+    font-weight: 600;
+    line-height: 1;
 }
 
 time {
-    font-size: 24px;
     display: block;
 }
 
 address {
+    font-style: inherit;
     font-size: 16px;
-    display: block;
 }
 
-.intro * + * {
-    margin-top: 1em;
+.heading-label {
+    font-size: clamp(0.8rem, 1vw, 2rem);
+    letter-spacing: 0.2rem;
+    line-height: 2;
+}
+
+.intro {
+    flex-grow: 1;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding: clamp(0px, 5vw, 45px);
+}
+
+.intro > * + * {
+    margin-top: 1rem;
+}
+
+.info > * + * {
+    margin-top: 0.5rem;    
+}
+
+.info {
+    margin-top: 2rem;
+}
+
+.add-to-calendar {
+    display: block;
+    margin: 1rem 0;
+    font-size: 0.75rem;
+    text-transform: uppercase;
+    height: 2rem;
+    cursor: pointer;
+    max-width: 20ch;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.card {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 10px;
+    width: clamp(10ch, 100vw, 60ch);
+}
+
+img,
+.intro {
+    border: 5px solid burlywood;
+}
+
+.heading-aside {
+    margin-top: 0.75rem;
+}
+
+.info img {
+    margin: auto;
+    margin-top: 0.5rem;
 }

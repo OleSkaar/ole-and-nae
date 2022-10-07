@@ -8,21 +8,24 @@ export default function Home() {
         <link rel="stylesheet" href="front-page.css" />
       </Head>
       <Layout>
-        <section class="intro">
-          <h1>Save the date!</h1>
-          <p>For our wedding</p>
-          <p>Ole Skaar & Nae Nishimura</p>
-          <time>July 1, 2023</time>
+        <section class="card">
+          <section class="intro">
+            <h1>Ole & Nae</h1>
+            <p class="heading-aside">are getting married!</p>
+            <div class="info">
+              <time>
+                <strong>July 1st 2023</strong>
+              </time>
+              <p>Osaka Gehisinkan, Japan</p>
+              <img src="/castle.png" />
+            </div>
+            <div class="info fine-print">
+              <p>Invitation to follow.</p>
+              <p>We hope you're able to attend!</p>
+            </div>
+            {/* <button class="add-to-calendar" href="#">Add to calendar</button> */}
+          </section>
         </section>
-        <address>
-            2 Osakajo,<br />
-            Chuo Ward,<br />
-            Osaka,<br />
-            540-0002,<br />
-            Japan
-          </address>
-        <p>Invitation to follow.</p>
-        <a href="#">Add to calendar</a>
       </Layout>
     </>
   );

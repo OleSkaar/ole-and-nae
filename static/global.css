@@ -1,75 +1,110 @@
 /***
-    The new CSS reset - version 1.7.3 (last updated 7.8.2022)
-    GitHub page: https://github.com/elad2412/the-new-css-reset
+    A modern CSS reset
+    By Piccalilli:  https://piccalil.li/blog/a-modern-css-reset/
 ***/
 
- *:where(:not(html, iframe, canvas, img, svg, video, audio):not(svg *, symbol *)) {
-    all: unset;
-    display: revert;
-}
-
-/* Preferred box-sizing value */
+ /* Box sizing rules */
 *,
 *::before,
 *::after {
-    box-sizing: border-box;
+  box-sizing: border-box;
 }
 
-/* Reapply the pointer cursor for anchor tags */
-a, button {
-    cursor: revert;
+/* Remove default margin */
+body,
+h1,
+h2,
+h3,
+h4,
+p,
+figure,
+blockquote,
+dl,
+dd {
+  margin: 0;
 }
 
-/* Remove list styles (bullets/numbers) */
-ol, ul, menu {
-    list-style: none;
+/* Remove list styles on ul, ol elements with a list role, which suggests default styling will be removed */
+ul[role='list'],
+ol[role='list'] {
+  list-style: none;
 }
 
-/* For images to not be able to exceed their container */
-img {
-    max-width: 100%;
+/* Set core root defaults */
+html:focus-within {
+  scroll-behavior: smooth;
 }
 
-/* Safari - solving issue when using user-select:none on the <body> text input doesn't working */
-input, textarea {
-    -webkit-user-select: auto;
+/* Set core body defaults */
+body {
+  min-height: calc(100vh - (var(--frame-margin) * 2));
+  text-rendering: optimizeSpeed;
+  font-family: DidactGothic-Regular;
 }
 
-/* revert the 'white-space' property for textarea elements on Safari */
-textarea {
-    white-space: revert;
+/* A elements that don't have a class get default styles */
+a:not([class]) {
+  text-decoration-skip-ink: auto;
 }
 
-/* reset default text opacity of input placeholder */
-::placeholder {
-    color: unset;
+/* Make images easier to work with */
+img,
+picture {
+  max-width: 100%;
+  display: block;
+}
+
+/* Inherit fonts for inputs and buttons */
+input,
+button,
+textarea,
+select {
+  font: inherit;
 }
 
 /* Project styles */
+:root {
+    --frame-margin: 15px;
+}
+
+html {
+    font-size: clamp(20px, 2vw, 30px);
+}
 
 body {
-    background-color: bisque;
-    font-family:"ヒラギノ角ゴ Pro W3", "Hiragino Kaku Gothic Pro",Osaka, "メイリオ", Meiryo, "ＭＳ Ｐゴシック", "MS PGothic", sans-serif;
+    background-color: bisque; /* #f2ffc487 */
+    font-family : YuGothic , 'Yu Gothic' , 'メイリオ' , Meiryo , 'ＭＳ ゴシック' , 'MS Gothic' , HiraKakuProN-W3 , 'TakaoExゴシック' , TakaoExGothic , 'MotoyaLCedar' , 'Droid Sans Japanese' , sans-serif;
+    padding: clamp(5px, 15px, 25px);
+    border: 5px solid burlywood;
+    margin: var(--frame-margin);
 }
 
 main {
-    max-width: 1920px;
-    margin: auto;
-    padding: clamp(5px, 15px, 25px);
-}
-
-main > * + * {
-    margin-top: 1em;
+    height: 100%;
+    display: flex;
+    justify-content: center;
 }
 
 header {
-    display: flex;
+    /* display: flex;
     justify-content: space-between;
     font-size: clamp(24px, 2vw, 32px);
-    border-bottom: 1px dotted darkslategrey;
-    padding: 10px;
+    padding: 10px 10px 10px 15px; */
+    writing-mode: vertical-rl;
+    text-orientation: upright;
+    position: fixed;
+    top: 0;
 }
 
 header a {
     padding: 5px;
+    text-decoration: none;
+}
+
+header a:visited {
+    color: inherit;
+}
+
+footer p {
+    padding: 10px 10px 10px 15px;
 }
