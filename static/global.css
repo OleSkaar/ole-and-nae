@@ -37,7 +37,6 @@ html:focus-within {
 
 /* Set core body defaults */
 body {
-  min-height: calc(100vh - (var(--frame-margin) * 2));
   text-rendering: optimizeSpeed;
   font-family: DidactGothic-Regular;
 }
@@ -63,41 +62,34 @@ select {
 }
 
 /* Project styles */
-:root {
-    --frame-margin: 15px;
-}
-
 html {
-    font-size: clamp(20px, 2vw, 30px);
+    font-size: clamp(20px, 2vw, 25px);
 }
 
 body {
     background-color: bisque; /* #f2ffc487 */
     font-family : YuGothic , 'Yu Gothic' , 'メイリオ' , Meiryo , 'ＭＳ ゴシック' , 'MS Gothic' , HiraKakuProN-W3 , 'TakaoExゴシック' , TakaoExGothic , 'MotoyaLCedar' , 'Droid Sans Japanese' , sans-serif;
-    padding: clamp(5px, 15px, 25px);
-    border: 5px solid burlywood;
-    margin: var(--frame-margin);
 }
 
 main {
     height: 100%;
     display: flex;
     justify-content: center;
+    transition: margin 0.1s ease;
 }
 
 header {
-    /* display: flex;
-    justify-content: space-between;
-    font-size: clamp(24px, 2vw, 32px);
-    padding: 10px 10px 10px 15px; */
-    writing-mode: vertical-rl;
-    text-orientation: upright;
-    position: fixed;
-    top: 0;
+    padding: 15px 15px 0 15px;
+    letter-spacing: 0.1em;
+}
+
+@media only screen and (min-width: 1500px) {
+    main {
+        margin-top: -60px;
+    }
 }
 
 header a {
-    padding: 5px;
     text-decoration: none;
 }
 

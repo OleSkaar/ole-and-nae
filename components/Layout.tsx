@@ -12,7 +12,7 @@ export default function Layout({ children }: LayoutProps) {
       <Head>
         <link rel="stylesheet" href="global.css" />
       </Head>
-      <header><a href="/">SAVE THE DATE</a></header>
+      {<header><a href="/">SAVE THE DATE</a></header>}
       <main>
         {children}
       </main>
