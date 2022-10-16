@@ -17,7 +17,7 @@ export default function Home() {
               <strong>July 1st 2023</strong>
             </time>
             <p>Osaka Geihinkan, Japan</p>
-            <img class="image" src="/castle.png" />
+            <img class="image" src="/osaka-castle.png" />
           </div>
           <div class="info">
             <p>Invitation to follow.</p>
