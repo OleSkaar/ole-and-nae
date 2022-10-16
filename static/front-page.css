@@ -29,6 +29,11 @@ input[type="email"] {
     width: 100%;
 }
 
+button {
+    color: inherit;
+    border-radius: 2px;
+}
+
 .intro {
     flex-grow: 1;
     text-align: center;

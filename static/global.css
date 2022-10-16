@@ -21,11 +21,6 @@ html:focus-within {
   scroll-behavior: smooth;
 }
 
-/* A elements that don't have a class get default styles */
-a:not([class]) {
-  text-decoration-skip-ink: auto;
-}
-
 /* Make images easier to work with */
 img,
 picture {
@@ -76,6 +71,7 @@ header a {
     text-decoration-thickness: 2px;
     text-underline-offset: 5px;
     transition: 0.2s;
+    color: inherit;
 }
 
 header a:hover {
