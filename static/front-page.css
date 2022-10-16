@@ -1,6 +1,6 @@
 @font-face {
     font-family: GoudyBookletter1911-Regular;
-    src: url("/fonts/GoudyBookletter1911-Regular.ttf");
+    src: url("/fonts/GoudyBookletter1911-Regular.woff2") format("woff2"), url("/fonts/GoudyBookletter1911-Regular.ttf");
 }
 
 h1 {
