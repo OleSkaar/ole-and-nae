@@ -1,5 +1,5 @@
 /***
-    A modern CSS reset
+    Uses part of a modern CSS reset
     By Piccalilli:  https://piccalil.li/blog/a-modern-css-reset/
 ***/
 
@@ -55,6 +55,7 @@ main {
     display: flex;
     justify-content: center;
     transition: margin 0.1s ease;
+    padding: 30px;
 }
 
 @media only screen and (min-width: 1500px) {
@@ -64,14 +65,37 @@ main {
 }
 
 header {
-    padding: 15px 15px 0 15px;
+    padding: 30px 30px 0 30px;
     letter-spacing: 0.1em;
+    font-weight: 500;
 }
 
 header a {
-    text-decoration: none;
+    text-decoration: underline overline;
+    text-decoration-color: transparent;
+    text-decoration-thickness: 2px;
+    text-underline-offset: 5px;
+    transition: 0.2s;
+}
+
+header a:hover {
+    text-decoration-color: black;
 }
 
 header a:visited {
     color: inherit;
+}
+
+.card {
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    border: 5px solid burlywood;
+    width: clamp(10ch, 100vw, 70ch);
+    padding: clamp(0px, 5vw, 45px);
+}
+
+.card > * + * {
+    margin-top: 1rem;
 }

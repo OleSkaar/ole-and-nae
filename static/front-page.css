@@ -3,10 +3,6 @@
     src: url("/fonts/GoudyBookletter1911-Regular.ttf");
 }
 
-main {
-    padding: 15px;
-}
-
 h1 {
     font-family: GoudyBookletter1911-Regular;
     font-size: clamp(50px, 5vw, 70px);
@@ -30,6 +26,7 @@ form > * {
 input[type="text"],
 input[type="email"] {
     padding-left: 5px;
+    width: 100%;
 }
 
 .intro {
@@ -53,20 +50,12 @@ input[type="email"] {
     margin-top: 2rem;
 }
 
-.card {
-    width: clamp(10ch, 100vw, 70ch);
-}
-
-img,
-.intro {
-    border: 5px solid burlywood;
-}
-
 .heading-sub {
     margin-top: 0.75rem;
 }
 
 .image {
+    border: 5px solid burlywood;
     margin: auto;
     margin-top: 0.5rem;
 }
