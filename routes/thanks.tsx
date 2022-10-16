@@ -1,8 +1,8 @@
 import { Head } from "https://deno.land/x/fresh@1.1.1/runtime.ts";
 import { Handlers } from "https://deno.land/x/fresh@1.1.1/server.ts";
 import Layout from "../components/Layout.tsx";
-import { config } from "https://deno.land/x/dotenv/mod.ts";
-import { Client } from "https://deno.land/x/notion_sdk/src/mod.ts";
+import { config } from "https://deno.land/x/dotenv@v3.2.0/mod.ts";
+import { Client } from "https://deno.land/x/notion_sdk@v1.0.4/src/mod.ts";
 
 export const handler: Handlers = {
   async POST(req, ctx) {
@@ -14,7 +14,6 @@ export const handler: Handlers = {
     
     config({ export: true });
 
-    // Initializing a client
     const notion = new Client({
         auth: Deno.env.get("NOTION_TOKEN"),
     })
@@ -74,7 +73,7 @@ export default function Thanks() {
       <Head>
       </Head>
       <Layout>
-        <h1>Thanks for submitting your email!</h1>
+        <h1>Thanks!</h1>
       </Layout>
     </>
   );

@@ -12,33 +12,13 @@
 
 /* Remove default margin */
 body,
-h1,
-h2,
-h3,
-h4,
-p,
-figure,
-blockquote,
-dl,
-dd {
+h1 {
   margin: 0;
-}
-
-/* Remove list styles on ul, ol elements with a list role, which suggests default styling will be removed */
-ul[role='list'],
-ol[role='list'] {
-  list-style: none;
 }
 
 /* Set core root defaults */
 html:focus-within {
   scroll-behavior: smooth;
-}
-
-/* Set core body defaults */
-body {
-  text-rendering: optimizeSpeed;
-  font-family: DidactGothic-Regular;
 }
 
 /* A elements that don't have a class get default styles */
@@ -55,9 +35,7 @@ picture {
 
 /* Inherit fonts for inputs and buttons */
 input,
-button,
-textarea,
-select {
+button {
   font: inherit;
 }
 
@@ -67,7 +45,8 @@ html {
 }
 
 body {
-    background-color: bisque; /* #f2ffc487 */
+    text-rendering: optimizeSpeed;
+    background-color: bisque;
     font-family : YuGothic , 'Yu Gothic' , 'メイリオ' , Meiryo , 'ＭＳ ゴシック' , 'MS Gothic' , HiraKakuProN-W3 , 'TakaoExゴシック' , TakaoExGothic , 'MotoyaLCedar' , 'Droid Sans Japanese' , sans-serif;
 }
 
@@ -78,15 +57,15 @@ main {
     transition: margin 0.1s ease;
 }
 
-header {
-    padding: 15px 15px 0 15px;
-    letter-spacing: 0.1em;
-}
-
 @media only screen and (min-width: 1500px) {
     main {
         margin-top: -60px;
     }
+}
+
+header {
+    padding: 15px 15px 0 15px;
+    letter-spacing: 0.1em;
 }
 
 header a {
@@ -95,8 +74,4 @@ header a {
 
 header a:visited {
     color: inherit;
-}
-
-footer p {
-    padding: 10px 10px 10px 15px;
 }

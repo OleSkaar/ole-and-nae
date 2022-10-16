@@ -14,15 +14,6 @@ h1 {
     line-height: 1;
 }
 
-time {
-    display: block;
-}
-
-address {
-    font-style: inherit;
-    font-size: 16px;
-}
-
 form {
     display: flex;
     flex-direction: column;
@@ -36,10 +27,9 @@ form > * {
     margin-top: 0.5rem;
 }
 
-.heading-label {
-    font-size: clamp(0.8rem, 1vw, 2rem);
-    letter-spacing: 0.2rem;
-    line-height: 2;
+input[type="text"],
+input[type="email"] {
+    padding-left: 5px;
 }
 
 .intro {
@@ -63,18 +53,6 @@ form > * {
     margin-top: 2rem;
 }
 
-.add-to-calendar {
-    display: block;
-    margin: 1rem 0;
-    font-size: 0.75rem;
-    text-transform: uppercase;
-    height: 2rem;
-    cursor: pointer;
-    max-width: 20ch;
-    margin-left: auto;
-    margin-right: auto;
-}
-
 .card {
     width: clamp(10ch, 100vw, 70ch);
 }
@@ -84,11 +62,11 @@ img,
     border: 5px solid burlywood;
 }
 
-.heading-aside {
+.heading-sub {
     margin-top: 0.75rem;
 }
 
-.info img {
+.image {
     margin: auto;
     margin-top: 0.5rem;
 }

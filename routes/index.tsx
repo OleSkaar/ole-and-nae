@@ -11,13 +11,13 @@ export default function Home() {
         <section class="card">
           <section class="intro">
             <h1>Ole & Nae</h1>
-            <p class="heading-aside">are getting married!</p>
+            <p class="heading-sub">are getting married!</p>
             <div class="info">
               <time>
                 <strong>July 1st 2023</strong>
               </time>
               <p>Osaka Geihinkan, Japan</p>
-              <img src="/castle.png" />
+              <img class="image" src="/castle.png" />
             </div>
             <div class="info">
               <p>Invitation to follow.</p>
@@ -25,6 +25,7 @@ export default function Home() {
                 <input
                   name="firstName"
                   id="firstName"
+                  autoComplete="given-name"
                   placeholder="First name"
                   type="text"
                   required
@@ -32,6 +33,7 @@ export default function Home() {
                 <input
                   name="lastName"
                   id="lastName"
+                  autoComplete="family-name"
                   placeholder="Last name"
                   type="text"
                   required
@@ -40,6 +42,7 @@ export default function Home() {
                   name="email"
                   type="email"
                   id="email"
+                  autoComplete="email"
                   placeholder="E-mail"
                   required
                 />
