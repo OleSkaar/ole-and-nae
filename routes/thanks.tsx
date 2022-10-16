@@ -75,6 +75,7 @@ export default function Thanks({ data }: PageProps<Data>) {
   return (
     <>
       <Head>
+        <title>Ole & Nae | Thank you</title>
       </Head>
       <Layout>
         <section className="card">

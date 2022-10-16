@@ -5,6 +5,7 @@ export default function Home() {
   return (
     <>
       <Head>
+        <title>Ole & Nae | Save the date</title>
         <link rel="stylesheet" href="front-page.css" />
       </Head>
       <Layout>

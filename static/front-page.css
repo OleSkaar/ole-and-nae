@@ -4,7 +4,7 @@
 }
 
 h1 {
-    font-family: GoudyBookletter1911-Regular;
+    font-family: GoudyBookletter1911-Regular, Times New Roman, serif;
     font-size: clamp(50px, 5vw, 70px);
     font-weight: 600;
     line-height: 1;
