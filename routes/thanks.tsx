@@ -1,8 +1,8 @@
+import { config } from "https://deno.land/std@0.159.0/dotenv/mod.ts";
 import { Head } from "https://deno.land/x/fresh@1.1.1/runtime.ts";
 import { Handlers, PageProps } from "https://deno.land/x/fresh@1.1.1/server.ts";
-import Layout from "../components/Layout.tsx";
-import { config } from "https://deno.land/x/dotenv@v3.2.0/mod.ts";
 import { Client } from "https://deno.land/x/notion_sdk@v1.0.4/src/mod.ts";
+import Layout from "../components/Layout.tsx";
 
 interface Data {
     email: string;
