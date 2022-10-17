@@ -2,11 +2,23 @@ import Layout from "../components/Layout.tsx";
 import { Head } from "$fresh/runtime.ts";
 
 export default function Home() {
+  const title = "Ole & Nae | Save the date";
+  const description =
+    "Save the date for Ole and Nae's wedding on July 1st 2023.";
+  const image = "/osaka-castle.webp";
+
   return (
     <>
       <Head>
-        <title>Ole & Nae | Save the date</title>
+        <title>{title}</title>
         <link rel="stylesheet" href="front-page.css" />
+        <meta name="description" content={description} />
+        <meta property="og:title" content={title} />
+        <meta property="og:description" content={description} />
+        <meta
+          property="og:image"
+          content={`https://oleandnae2023.com/${image}`}
+        />
       </Head>
       <Layout>
         <section class="frame">
@@ -17,7 +29,13 @@ export default function Home() {
               <strong>July 1st 2023</strong>
             </time>
             <p>Osaka Geihinkan, Japan</p>
-            <img width="450" height="607" class="image" src="/osaka-castle.webp" />
+            <img
+              width="450"
+              height="607"
+              class="image"
+              src={image}
+              alt="A line drawing of Osaka Castle."
+            />
           </div>
           <div class="info">
             <p>Invitation to follow.</p>
