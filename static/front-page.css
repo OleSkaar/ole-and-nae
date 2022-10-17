@@ -33,6 +33,7 @@ button {
     cursor: pointer;
     color: black;
     border-radius: 2px;
+    border: 1px solid black;
 }
 
 time {
