@@ -1,5 +1,5 @@
 import Layout from "../components/Layout.tsx";
-import { Head } from "$fresh/runtime.ts";
+import { Head, asset } from "$fresh/runtime.ts";
 
 export default function Home() {
   const title = "Ole & Nae | Save the date";
@@ -11,13 +11,13 @@ export default function Home() {
     <>
       <Head>
         <title>{title}</title>
-        <link rel="stylesheet" href="front-page.css" />
+        <link rel="stylesheet" href={asset("front-page.css")} />
         <meta name="description" content={description} />
         <meta property="og:title" content={title} />
         <meta property="og:description" content={description} />
         <meta
           property="og:image"
-          content={`https://oleandnae2023.com/${image}`}
+          content={`https://oleandnae2023.com${image}`}
         />
       </Head>
       <Layout>
