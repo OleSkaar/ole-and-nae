@@ -78,7 +78,7 @@ export default function Thanks({ data }: PageProps<Data>) {
         <title>Ole & Nae | Thank you</title>
       </Head>
       <Layout>
-        <section className="card">
+        <section className="frame">
           <h1>Thank you!</h1>
           <p>Your invitation will be sent to:</p>
           <address>{data.email}</address>

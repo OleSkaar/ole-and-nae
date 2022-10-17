@@ -9,7 +9,7 @@ export default function Home() {
         <link rel="stylesheet" href="front-page.css" />
       </Head>
       <Layout>
-        <section class="card">
+        <section class="frame">
           <h1>Ole & Nae</h1>
           <p class="heading-sub">are getting married!</p>
           <div class="info">
@@ -17,7 +17,7 @@ export default function Home() {
               <strong>July 1st 2023</strong>
             </time>
             <p>Osaka Geihinkan, Japan</p>
-            <img class="image" src="/osaka-castle.png" />
+            <img width="450" height="607" class="image" src="/osaka-castle.webp" />
           </div>
           <div class="info">
             <p>Invitation to follow.</p>
