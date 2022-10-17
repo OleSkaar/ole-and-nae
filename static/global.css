@@ -70,10 +70,11 @@ img {
 }
 
 .frame {
-    text-align: center;
     display: flex;
     flex-direction: column;
     justify-content: center;
+    align-items: center;
+    text-align: center;
     border: 5px solid burlywood;
     width: clamp(10ch, 100vw, 70ch);
     padding: clamp(0px, 5vw, 45px);

@@ -40,7 +40,6 @@ export default function Home() {
           <form action="/thanks" method="POST">
             <input
               name="firstName"
-              id="firstName"
               autoComplete="given-name"
               placeholder="First name"
               type="text"
@@ -48,7 +47,6 @@ export default function Home() {
             />
             <input
               name="lastName"
-              id="lastName"
               autoComplete="family-name"
               placeholder="Last name"
               type="text"
@@ -57,7 +55,6 @@ export default function Home() {
             <input
               name="email"
               type="email"
-              id="email"
               autoComplete="email"
               placeholder="E-mail"
               required

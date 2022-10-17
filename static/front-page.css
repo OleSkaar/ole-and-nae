@@ -12,30 +12,24 @@ h1 {
 }
 
 form {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
     width: 100%;
     max-width: 460px;
-    margin: 0 auto;
 }
 
 form > * {
     display: block;
+    width: 100%;
     margin-top: 0.5rem;
 }
 
 input[type="text"],
 input[type="email"] {
     width: 100%;
-    padding-left: 5px;
+    padding: 10px;
     font-size: clamp(16px, 2vw, 20px);
-    line-height: 1.75rem;
 }
 
 button {
-    color: black;
-    border-radius: 2px;
     cursor: pointer;
 }
 
@@ -44,11 +38,9 @@ time {
 }
 
 .heading-sub {
-    margin-top: 0.75rem;
+    margin-top: 0.5rem;
 }
 
 .image {
     border: 5px solid burlywood;
-    margin: auto;
-    margin-top: 0.5rem;
 }
