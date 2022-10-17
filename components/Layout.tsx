@@ -1,6 +1,5 @@
 import { Head } from "$fresh/runtime.ts";
 import { ComponentChildren } from "preact";
-import LanguageButton from "./LanguageButton.tsx";
 
 interface LayoutProps {
     children: ComponentChildren;
@@ -17,7 +16,6 @@ export default function Layout({ children }: LayoutProps) {
       <main>
         {children}
       </main>
-
     </>
   );
 }
