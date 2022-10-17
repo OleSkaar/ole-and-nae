@@ -24,51 +24,47 @@ export default function Home() {
         <section class="frame">
           <h1>Ole & Nae</h1>
           <p class="heading-sub">are getting married!</p>
-          <div class="info">
-            <time>
-              <strong>July 1st 2023</strong>
-            </time>
-            <p>Osaka Geihinkan, Japan</p>
-            <img
-              width="450"
-              height="607"
-              class="image"
-              src={image}
-              alt="A line drawing of Osaka Castle."
+          <time>
+            <strong>July 1st 2023</strong>
+          </time>
+          <p>Osaka Geihinkan, Japan</p>
+          <img
+            width="450"
+            height="607"
+            class="image"
+            src={image}
+            alt="A line drawing of Osaka Castle."
+          />
+          <p>Invitation to follow.</p>
+          <p>Send us your email so we know how to reach you.</p>
+          <form action="/thanks" method="POST">
+            <input
+              name="firstName"
+              id="firstName"
+              autoComplete="given-name"
+              placeholder="First name"
+              type="text"
+              required
             />
-          </div>
-          <div class="info">
-            <p>Invitation to follow.</p>
-            <p>Send us your email so we know how to reach you.</p>
-            <form action="/thanks" method="POST">
-              <input
-                name="firstName"
-                id="firstName"
-                autoComplete="given-name"
-                placeholder="First name"
-                type="text"
-                required
-              />
-              <input
-                name="lastName"
-                id="lastName"
-                autoComplete="family-name"
-                placeholder="Last name"
-                type="text"
-                required
-              />
-              <input
-                name="email"
-                type="email"
-                id="email"
-                autoComplete="email"
-                placeholder="E-mail"
-                required
-              />
-              <button>Submit</button>
-            </form>
-            <p>We hope you're able to attend!</p>
-          </div>
+            <input
+              name="lastName"
+              id="lastName"
+              autoComplete="family-name"
+              placeholder="Last name"
+              type="text"
+              required
+            />
+            <input
+              name="email"
+              type="email"
+              id="email"
+              autoComplete="email"
+              placeholder="E-mail"
+              required
+            />
+            <button>Submit</button>
+          </form>
+          <p>We hope you're able to attend!</p>
         </section>
       </Layout>
     </>

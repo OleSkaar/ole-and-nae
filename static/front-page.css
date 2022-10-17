@@ -38,24 +38,7 @@ button {
     cursor: pointer;
 }
 
-.intro {
-    flex-grow: 1;
-    text-align: center;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    padding: clamp(0px, 5vw, 45px);
-}
-
-.intro > * + * {
-    margin-top: 1rem;
-}
-
-.info > * + * {
-    margin-top: 0.5rem;    
-}
-
-.info {
+time {
     margin-top: 2rem;
 }
 
