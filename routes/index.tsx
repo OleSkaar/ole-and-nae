@@ -1,10 +1,52 @@
 import Layout from "../components/Layout.tsx";
-import { Head, asset } from "$fresh/runtime.ts";
+import { asset, Head } from "$fresh/runtime.ts";
+import { Handlers } from "https://deno.land/x/fresh@1.1.1/server.ts";
+import {
+  enHomePageTranslations,
+  Japanese,
+  jpHomePageTranslations,
+  LanguageParameter,
+} from "../components/translations.ts";
 
-export default function Home() {
-  const title = "Ole & Nae | Save the date";
-  const description =
-    "Save the date for Ole and Nae's wedding on July 1st 2023.";
+import { PageProps } from "$fresh/server.ts";
+
+export interface HomePageTranslations {
+  titleTag: string;
+  metaDescription: string;
+  mainHeading: string;
+  headingSub: string;
+  date: string;
+  location: string;
+  invitationToFollow: string;
+  sendUsYourEmail: string;
+  firstName: string;
+  lastName: string;
+  email: string;
+  submit: string;
+  weHopeYouCanAttend: string;
+}
+
+interface Data extends HomePageTranslations {
+  languageParameter: string;
+}
+
+export const handler: Handlers<Data> = {
+  GET(req, ctx) {
+    const parameter = `?${LanguageParameter}=${Japanese}`;
+    const translations = req.url.includes(parameter)
+      ? jpHomePageTranslations
+      : enHomePageTranslations;
+
+    const languageParameter = req.url.includes(parameter) ? parameter : '';
+    
+    return ctx.render({languageParameter, ...translations});
+  },
+};
+
+export default function Home(props: PageProps<Data>) {
+  const { data } = props;
+  const title = data.titleTag;
+  const description = data.metaDescription;
   const image = "/osaka-castle.webp";
 
   return (
@@ -22,12 +64,12 @@ export default function Home() {
       </Head>
       <Layout>
         <section class="frame">
-          <h1>Ole & Nae</h1>
-          <p class="heading-sub">are getting married!</p>
+          <h1>{data.mainHeading}</h1>
+          <p class="heading-sub">{data.headingSub}</p>
           <time>
-            <strong>July 1st 2023</strong>
+            <strong>{data.date}</strong>
           </time>
-          <p>Osaka Geihinkan, Japan</p>
+          <p>{data.location}</p>
           <img
             width="450"
             height="607"
@@ -35,20 +77,20 @@ export default function Home() {
             src={image}
             alt="A line drawing of Osaka Castle."
           />
-          <p>Invitation to follow.</p>
-          <p>Send us your email so we know how to reach you.</p>
-          <form action="/thanks" method="POST">
+          <p>{data.invitationToFollow}</p>
+          <p>{data.sendUsYourEmail}</p>
+          <form action={`/thanks${data.languageParameter}`} method="POST">
             <input
               name="firstName"
               autoComplete="given-name"
-              placeholder="First name"
+              placeholder={data.firstName}
               type="text"
               required
             />
             <input
               name="lastName"
               autoComplete="family-name"
-              placeholder="Last name"
+              placeholder={data.lastName}
               type="text"
               required
             />
@@ -56,12 +98,12 @@ export default function Home() {
               name="email"
               type="email"
               autoComplete="email"
-              placeholder="E-mail"
+              placeholder={data.email}
               required
             />
-            <button>Submit</button>
+            <button>{data.submit}</button>
           </form>
-          <p>We hope you're able to attend!</p>
+          <p>{data.weHopeYouCanAttend}</p>
         </section>
       </Layout>
     </>

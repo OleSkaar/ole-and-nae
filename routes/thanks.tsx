@@ -3,9 +3,16 @@ import { Head } from "https://deno.land/x/fresh@1.1.1/runtime.ts";
 import { Handlers, PageProps } from "https://deno.land/x/fresh@1.1.1/server.ts";
 import { Client } from "https://deno.land/x/notion_sdk@v1.0.4/src/mod.ts";
 import Layout from "../components/Layout.tsx";
+import { enThankYouPageTranslations, Japanese, jpThankYouPageTranslations, LanguageParameter } from "../components/translations.ts";
 
-interface Data {
-    email: string;
+export interface ThankYouPageTranslations {
+  titleTag: string;
+  mainHeading: string;
+  invitationWillBeSentTo: string;
+}
+
+interface Data extends ThankYouPageTranslations {
+  email: string;
 }
 
 export const handler: Handlers = {
@@ -65,23 +72,31 @@ export const handler: Handlers = {
 
     addItem();
 
-    const resp = await ctx.render({ email });
+    const parameter = `?${LanguageParameter}=${Japanese}`
+    const translations = req.url.includes(parameter) ? jpThankYouPageTranslations : enThankYouPageTranslations;
+
+    const props = {
+        email,
+        ...translations
+    }
+
+    const resp = await ctx.render(props);
 
     return resp;
   },
 };
 
-export default function Thanks({ data }: PageProps<Data>) {
+export default function Thanks(props: PageProps<Data>) {
   return (
     <>
       <Head>
-        <title>Ole & Nae | Thank you</title>
+        <title>{props.data?.titleTag}</title>
       </Head>
       <Layout>
         <section className="frame">
-          <h1>Thank you!</h1>
-          <p>Your invitation will be sent to:</p>
-          <address>{data.email}</address>
+          <h1>{props.data?.mainHeading}</h1>
+          <p>{props.data?.invitationWillBeSentTo}</p>
+          <address>{props.data?.email}</address>
         </section>
       </Layout>
     </>

@@ -1,8 +1,9 @@
-import { Head, asset } from "$fresh/runtime.ts";
+import { asset, Head } from "$fresh/runtime.ts";
 import { ComponentChildren } from "preact";
+import LanguageButton from "../islands/LanguageButton.tsx";
 
 interface LayoutProps {
-    children: ComponentChildren;
+  children: ComponentChildren;
 }
 
 export default function Layout({ children }: LayoutProps) {
@@ -12,7 +13,12 @@ export default function Layout({ children }: LayoutProps) {
         <link rel="stylesheet" href={asset("global.css")} />
         <link rel="icon" type="image/x-icon" href="/favicon.png"></link>
       </Head>
-      {<header><a href="/">SAVE THE DATE</a></header>}
+      {
+        <header>
+          <a href="/">SAVE THE DATE</a>
+          <LanguageButton />
+        </header>
+      }
       <main>
         {children}
       </main>
