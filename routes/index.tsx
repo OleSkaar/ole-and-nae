@@ -16,7 +16,8 @@ export interface HomePageTranslations {
   mainHeading: string;
   headingSub: string;
   date: string;
-  location: string;
+  locationLine1: string;
+  locationLine2?: string;
   invitationToFollow: string;
   sendUsYourEmail: string;
   firstName: string;
@@ -69,7 +70,7 @@ export default function Home(props: PageProps<Data>) {
           <time>
             <strong>{data.date}</strong>
           </time>
-          <p>{data.location}</p>
+          <p>{data.locationLine1}{data?.locationLine2 && <br/>}{data?.locationLine2}</p>
           <img
             width="450"
             height="607"

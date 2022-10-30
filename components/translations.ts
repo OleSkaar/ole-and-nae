@@ -10,7 +10,7 @@ export const enHomePageTranslations: HomePageTranslations = {
   mainHeading: 'Ole & Nae',
   headingSub: 'are getting married!',
   date: 'July 1st 2023',
-  location: 'Osaka Geihinkan, Japan',
+  locationLine1: 'Osaka Geihinkan, Japan',
   invitationToFollow: 'Invitation to follow.',
   sendUsYourEmail: 'Send us your email so we know how to reach you.',
   firstName: 'First name',
@@ -26,7 +26,8 @@ export const jpHomePageTranslations: HomePageTranslations = {
   mainHeading: 'Ole & Nae',
   headingSub: 'are getting married!',
   date: '令和5年 7月1日',
-  location: '大阪城西の丸庭園  \b 大阪迎賓館',
+  locationLine1: '大阪城西の丸庭園',
+  locationLine2: '大阪迎賓館',
   invitationToFollow: '正式な招待状は後日改めて送付させていたただきます。',
   sendUsYourEmail:
     'つきましては招待状の送信先に希望されるメールアドレスをご記入ください。',
