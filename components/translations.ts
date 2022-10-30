@@ -17,7 +17,7 @@ export const enHomePageTranslations: HomePageTranslations = {
   lastName: 'Last name',
   email: 'E-mail',
   submit: 'Submit',
-  weHopeYouCanAttend: "We hope you're able to attend",
+  weHopeYouCanAttend: "We hope you're able to attend.",
 };
 
 export const jpHomePageTranslations: HomePageTranslations = {
