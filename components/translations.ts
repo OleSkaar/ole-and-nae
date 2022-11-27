@@ -1,4 +1,5 @@
 import { HomePageTranslations } from '../routes/index.tsx';
+import { InvitationPageTranslations } from '../routes/invitation/[id].tsx';
 import { ThankYouPageTranslations } from '../routes/thanks.tsx';
 
 export const LanguageParameter = 'lang';
@@ -45,7 +46,48 @@ export const enThankYouPageTranslations: ThankYouPageTranslations = {
 };
 
 export const jpThankYouPageTranslations: ThankYouPageTranslations = {
-    titleTag: 'Ole & Nae | Thank you!',
-    mainHeading: 'ありがとうございます！',
-    invitationWillBeSentTo: '招待状はこちらのメールアドレスに送信させていただきます。',
-  };
+  titleTag: 'Ole & Nae | Thank you!',
+  mainHeading: 'ありがとうございます！',
+  invitationWillBeSentTo:
+    '招待状はこちらのメールアドレスに送信させていただきます。',
+};
+
+export const enInvitationPageTranslations: InvitationPageTranslations = {
+  titleTag: 'Ole & Nae | Invitation',
+  metaDescription: '',
+  mainHeading: 'Ole & Nae',
+  headingSub: 'are getting married!',
+  firstName: '',
+  lastName: '',
+  email: '',
+  submit: 'Send',
+  plusOne: "I'm bringing a guest",
+  dietaryRequirements:
+    'Please let us know here if you have any dietary requirements',
+  children: 'Are you bringing any children?',
+  welcomeParty: "I'm attending the welcome party",
+  afterParty: "I'm attending the afterparty",
+  greetings:
+    'Drop a greeting to the other guests, and we will post it on this website :)',
+  yesAttending: "Yes, I'm attending",
+  notAttending: "No, unfortunately I can't attend",
+};
+
+export const jpInvitationPageTranslations: InvitationPageTranslations = {
+  titleTag: '',
+  metaDescription: '',
+  mainHeading: '',
+  headingSub: 'are getting married!',
+  firstName: '',
+  lastName: '',
+  email: '',
+  submit: '',
+  plusOne: '',
+  dietaryRequirements: '',
+  children: '',
+  welcomeParty: '',
+  afterParty: '',
+  greetings: '',
+  yesAttending: '',
+  notAttending: '',
+};

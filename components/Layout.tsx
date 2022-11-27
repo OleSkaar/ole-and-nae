@@ -10,7 +10,7 @@ export default function Layout({ children }: LayoutProps) {
   return (
     <>
       <Head>
-        <link rel="stylesheet" href={asset("global.css")} />
+        <link rel="stylesheet" href={asset("/global.css")} />
         <link rel="icon" type="image/x-icon" href="/favicon.png"></link>
       </Head>
       {

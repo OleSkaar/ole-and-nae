@@ -10,13 +10,12 @@ import {
   LanguageParameter,
 } from "../components/translations.ts";
 
-export interface ThankYouPageTranslations {
+export interface ResponsePageTranslations {
   titleTag: string;
   mainHeading: string;
-  invitationWillBeSentTo: string;
 }
 
-interface Data extends ThankYouPageTranslations {
+interface Data extends ResponsePageTranslations {
   email: string;
 }
 
@@ -93,7 +92,7 @@ export const handler: Handlers = {
   },
 };
 
-export default function Thanks(props: PageProps<Data>) {
+export default function Response(props: PageProps<Data>) {
   return (
     <>
       <Head>
@@ -102,7 +101,6 @@ export default function Thanks(props: PageProps<Data>) {
       <Layout>
         <section className="frame">
           <h1>{props.data?.mainHeading}</h1>
-          <p>{props.data?.invitationWillBeSentTo}</p>
           <address>{props.data?.email}</address>
         </section>
       </Layout>
