@@ -26,6 +26,7 @@ export interface InvitationPageTranslations {
   email: string;
   submit: string;
   plusOne: string;
+  plusOnePlaceholder: string;
   dietaryRequirements: string;
   children: string;
   welcomeParty: string;
@@ -44,6 +45,7 @@ interface InviteeResponse {
 interface Data extends InvitationPageTranslations {
   languageParameter: string;
   response: InviteeResponse;
+  pageId: string;
 }
 
 export const handler: Handlers<Data> = {
@@ -63,33 +65,35 @@ export const handler: Handlers<Data> = {
       auth: Deno.env.get("NOTION_TOKEN"),
     });
 
-    // const invitee = await notion.databases.query({
-    //   database_id: Deno.env.get("NOTION_DATABASE_ID") as string,
-    //   filter: {
-    //     property: "ID",
-    //     formula: {
-    //       string: {
-    //         equals: id,
-    //       },
-    //     },
-    //   },
-    // });
+    const invitee = await notion.databases.query({
+      database_id: Deno.env.get("NOTION_DATABASE_ID") as string,
+      filter: {
+        property: "ID",
+        formula: {
+          string: {
+            equals: id,
+          },
+        },
+      },
+    });
 
-    // const result = invitee.results[0];
+    const result = invitee.results[0];
 
-    // const response = {
-    //   firstName: getResultTextProperty(result, "First name"),
-    //   lastName: getResultTextProperty(result, "Last name"),
-    //   email: getResultEmailProperty(result),
-    // };
+    const pageId = result.id;
 
-    const response: InviteeResponse = {
-      firstName: "Test",
-      lastName: "User",
-      email: "testuser@test.com",
+    const response = {
+      firstName: getResultTextProperty(result, "First name"),
+      lastName: getResultTextProperty(result, "Last name"),
+      email: getResultEmailProperty(result),
     };
 
-    return ctx.render({ languageParameter, response, ...translations });
+    // const response: InviteeResponse = {
+    //   firstName: "Test",
+    //   lastName: "User",
+    //   email: "testuser@test.com",
+    // };
+
+    return ctx.render({ languageParameter, response, ...translations, pageId });
   },
 };
 
@@ -124,7 +128,7 @@ export default function Invitation(props: PageProps<Data>) {
             </p>
             <p>We're very excited and hope you're able to attend!</p>
           </div>
-          <form action={`/responses${data.languageParameter}`} method="POST">
+          <form action={`/response${data.languageParameter}`} method="POST">
             <h2>RSVP</h2>
             <p>Please respond by February 28.</p>
             <h3>Your information</h3>
@@ -133,18 +137,18 @@ export default function Invitation(props: PageProps<Data>) {
             <hr />
             <div class="radio-buttons">
               <div class="radio-button">
-                <input name="attending" type="radio" id="yesAttending" required>
+                <input name="attending" type="radio" id="yesAttending" value="yes" required>
                 </input>
                 <label for="attending">{data.yesAttending}</label>
               </div>
               <div class="radio-button">
-                <input name="attending" type="radio" id="notAttending"></input>
+                <input name="attending" type="radio" id="notAttending" value="no"></input>
                 <label for="attending">{data.notAttending}</label>
               </div>
             </div>
-            <div class="checkbox">
+            <div>
               <label for="plusOne">{data.plusOne}</label>
-              <input name="plusOne" type="checkbox" />
+              <input name="plusOne" type="text" placeholder={data.plusOnePlaceholder} />
             </div>
             <div class="checkbox">
               <label for="welcomeParty">{data.welcomeParty}</label>
@@ -166,6 +170,7 @@ export default function Invitation(props: PageProps<Data>) {
               name="greetings"
               placeholder={data.greetings}
             />
+            <input name="id" type="hidden" value={data.pageId} />
             <button>{data.submit}</button>
           </form>
         </section>

@@ -23,9 +23,15 @@ export const handler: Handlers = {
   async POST(req, ctx) {
     const body = await req.formData();
 
+    const id = body.get("id")?.toString();
     const email = body.get("email")?.toString();
-    const firstName = body.get("firstName")?.toString();
-    const lastName = body.get("lastName")?.toString();
+    const attending = body.get("attending")?.toString();
+    const plusOne = body.get("plusOne")?.toString();
+    const welcomeParty = body.get("welcomeParty")?.toString()
+    const afterParty = body.get("afterParty")?.toString();
+    const children = body.get("children")?.toString();
+    const dietaryRequirements = body.get("dietaryRequirements")?.toString();
+    const greetings = body.get("greetings")?.toString()
 
     config({ export: true });
 
@@ -33,48 +39,58 @@ export const handler: Handlers = {
       auth: Deno.env.get("NOTION_TOKEN"),
     });
 
-    async function addItem() {
-      try {
-        const response = await notion.pages.create({
-          parent: { database_id: Deno.env.get("NOTION_DATABASE_ID") as string },
-          properties: {
-            title: {
-              title: [
-                {
-                  "text": {
-                    "content": email ?? "",
-                  },
-                },
-              ],
+    const response = await notion.pages.update({
+      page_id: id as string,
+      properties: {
+        'Attending': {
+          select: {
+            id: attending === 'yes' ? '@hOr' : 'Y>XL'
+          }
+        },
+        'Plus one': {
+          rich_text: [
+            {
+              "text": {
+                "content": plusOne ?? "",
+              },
             },
-            "First name": {
-              rich_text: [
-                {
-                  "text": {
-                    "content": firstName ?? "",
-                  },
-                },
-              ],
+          ],
+        },
+        'Welcome party': {
+          checkbox: welcomeParty === 'on'
+        },
+        'Afterparty': {
+          checkbox: afterParty === 'on'
+        },
+        'Children': {
+          rich_text: [
+            {
+              "text": {
+                "content": children ?? "",
+              },
             },
-            "Last name": {
-              rich_text: [
-                {
-                  "text": {
-                    "content": lastName ?? "",
-                  },
-                },
-              ],
+          ],
+        },
+        'Dietary requirements': {
+          rich_text: [
+            {
+              "text": {
+                "content": dietaryRequirements ?? "",
+              },
             },
-          },
-        });
-        console.log(response);
-        console.log("Success! Entry added.");
-      } catch (error) {
-        console.error(error.body);
-      }
-    }
-
-    addItem();
+          ],
+        },
+        'Greetings': {
+          rich_text: [
+            {
+              "text": {
+                "content": greetings ?? "",
+              },
+            },
+          ],
+        },
+      },
+    });
 
     const parameter = `?${LanguageParameter}=${Japanese}`;
     const translations = req.url.includes(parameter)

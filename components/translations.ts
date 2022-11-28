@@ -61,7 +61,7 @@ export const enInvitationPageTranslations: InvitationPageTranslations = {
   lastName: '',
   email: '',
   submit: 'Send',
-  plusOne: "I'm bringing a guest",
+  plusOne: 'Are you bringing a guest? If so, write their name here.',
   dietaryRequirements:
     'Please let us know here if you have any dietary requirements',
   children: 'Are you bringing any children?',
@@ -71,6 +71,7 @@ export const enInvitationPageTranslations: InvitationPageTranslations = {
     'Drop a greeting to the other guests, and we will post it on this website :)',
   yesAttending: "Yes, I'm attending",
   notAttending: "No, unfortunately I can't attend",
+  plusOnePlaceholder: 'Guest\'s name',
 };
 
 export const jpInvitationPageTranslations: InvitationPageTranslations = {
@@ -90,4 +91,5 @@ export const jpInvitationPageTranslations: InvitationPageTranslations = {
   greetings: '',
   yesAttending: '',
   notAttending: '',
+  plusOnePlaceholder: '',
 };
