@@ -1,49 +1,27 @@
-@font-face {
-    font-family: GoudyBookletter1911-Regular;
-    src: url("/fonts/GoudyBookletter1911-Regular.woff2") format("woff2"), url("/fonts/GoudyBookletter1911-Regular.ttf");
-    font-display: swap;
-}
-
-h1 {
-    font-family: GoudyBookletter1911-Regular, Times New Roman, serif;
-    font-size: clamp(50px, 5vw, 70px);
-    font-weight: 600;
-    line-height: 1;
-}
-
 form {
-    width: 100%;
-    max-width: 460px;
-}
-
-form > * {
-    display: block;
-    width: 100%;
-    margin: 0.5rem 0 0 0;
-}
-
-input[type="text"],
-input[type="email"] {
-    width: 100%;
-    padding: 10px;
-    font-size: clamp(16px, 2vw, 20px);
+  max-width: 460px;
 }
 
 button {
-    cursor: pointer;
-    color: black;
-    border-radius: 2px;
-    border: 1px solid black;
+  cursor: pointer;
+  color: black;
+  border-radius: 2px;
+  border: 1px solid black;
 }
 
 time {
-    margin-top: 2rem;
+  margin-top: 2rem;
 }
 
 .heading-sub {
-    margin-top: 0.5rem;
+  margin-top: 0.5rem;
 }
 
 .image {
-    border: 5px solid burlywood;
+  border: 5px solid burlywood;
+}
+
+.frame {
+  font-size: clamp(20px, 2vw, 25px);
+  text-align: center;
 }

@@ -1,87 +1,124 @@
 *,
 *::before,
 *::after {
-    box-sizing: border-box;
+  box-sizing: border-box;
 }
 
 html {
-    font-size: clamp(20px, 2vw, 25px);
+  font-size: clamp(16px, 2vw, 20px);
 }
 
 html:focus-within {
-    scroll-behavior: smooth;
+  scroll-behavior: smooth;
 }
 
 body,
 h1 {
-    margin: 0;
+  margin: 0;
 }
 
 body {
-    text-rendering: optimizeSpeed;
-    background-color: bisque;
-    font-family: YuGothic, 'Yu Gothic', 'メイリオ', Meiryo, 'ＭＳ ゴシック',
-        'MS Gothic', HiraKakuProN-W3, 'TakaoExゴシック', TakaoExGothic,
-        'MotoyaLCedar', 'Droid Sans Japanese', sans-serif;
+  text-rendering: optimizeSpeed;
+  background-color: bisque;
+  font-family: YuGothic, 'Yu Gothic', 'メイリオ', Meiryo, 'ＭＳ ゴシック',
+    'MS Gothic', HiraKakuProN-W3, 'TakaoExゴシック', TakaoExGothic,
+    'MotoyaLCedar', 'Droid Sans Japanese', sans-serif;
 }
 
 main {
-    height: 100%;
-    display: flex;
-    justify-content: center;
-    transition: margin 0.1s ease;
-    padding: 30px;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  transition: margin 0.1s ease;
+  padding: 30px;
 }
 
 @media only screen and (min-width: 1500px) {
-    main {
-        margin-top: -60px;
-    }
+  main {
+    margin-top: -60px;
+  }
 }
 
 header {
-    padding: 30px 30px 0 30px;
-    letter-spacing: 0.1em;
-    font-weight: 500;
-    display: flex;
-    justify-content: space-between;
+  padding: 30px 30px 0 30px;
+  letter-spacing: 0.1em;
+  font-weight: 500;
+  display: flex;
+  justify-content: space-between;
 }
 
 header a {
-    text-decoration: none;
-    color: inherit;
+  text-decoration: none;
+  color: inherit;
 }
 
 header a:hover {
-    text-decoration-color: black;
+  text-decoration-color: black;
 }
 
 header a:visited {
-    color: inherit;
+  color: inherit;
 }
 
 input,
 button {
-    font: inherit;
+  font: inherit;
 }
 
 img {
-    max-width: 100%;
-    display: block;
-    height: auto;
+  max-width: 100%;
+  display: block;
+  height: auto;
+}
+
+form {
+  width: 100%;
+}
+
+form > * {
+  display: block;
+  width: 100%;
+  margin: 0.5rem 0 0 0;
+}
+
+input[type='text'],
+input[type='email'] {
+  width: 100%;
+  padding: 10px;
+  font-size: clamp(16px, 2vw, 20px);
+}
+
+@font-face {
+  font-family: GoudyBookletter1911-Regular;
+  src: url('/fonts/GoudyBookletter1911-Regular.woff2') format('woff2'),
+    url('/fonts/GoudyBookletter1911-Regular.ttf');
+  font-display: swap;
+}
+.decorative-heading {
+  font-family: GoudyBookletter1911-Regular, Times New Roman, serif;
+  font-size: clamp(50px, 5vw, 70px);
+  font-weight: 600;
+  line-height: 1;
+}
+
+.fleuron {
+  font-family: GoudyBookletter1911-Regular, Times New Roman, serif;
+  font-size: clamp(25px, 5vw, 50px);
+  line-height: 1;
+  margin: 1rem 0;
+  text-align: center;
 }
 
 .frame {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    text-align: center;
-    border: 5px solid burlywood;
-    width: clamp(10ch, 100vw, 75ch);
-    padding: clamp(0px, 5vw, 45px);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  border: 5px solid burlywood;
+  width: clamp(10ch, 100vw, 75ch);
+  padding: clamp(0px, 5vw, 45px);
 }
 
 .language-button {
-    width: 3rem;
+  width: 3rem;
 }

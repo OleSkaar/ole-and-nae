@@ -15,6 +15,8 @@ import {
   getResultEmailProperty,
   getResultTextProperty,
 } from "../../utils/getResultProperty.ts";
+import Information from "../../components/Information.tsx";
+import Fleuron from "../../components/Fleuron.tsx";
 
 export interface InvitationPageTranslations {
   titleTag: string;
@@ -108,7 +110,6 @@ export default function Invitation(props: PageProps<Data>) {
     <>
       <Head>
         <title>{title}</title>
-        <link rel="stylesheet" href={asset("/front-page.css")} />
         <link rel="stylesheet" href={asset("/invitation.css")} />
         <meta name="description" content={description} />
         <meta property="og:title" content={title} />
@@ -120,59 +121,81 @@ export default function Invitation(props: PageProps<Data>) {
       </Head>
       <Layout>
         <section class="frame">
-          <h1>{data.mainHeading}</h1>
+          <h1 class="decorative-heading">{data.mainHeading}</h1>
           <p className="heading-sub">{data.headingSub}</p>
           <div class="info">
             <p>
               {`Dear ${response.firstName}, you're invited to our wedding on July 1 2023.`}
             </p>
             <p>We're very excited and hope you're able to attend!</p>
+            <Fleuron />
+            <Information />
+            <Fleuron />
+
+            <form action={`/response${data.languageParameter}`} method="POST">
+              <h2>RSVP</h2>
+              <p>Please respond by February 28.</p>
+              <h3>Your information</h3>
+              <p>{response.firstName} {response.lastName}</p>
+              <p>{response.email}</p>
+              <hr />
+              <div class="radio-buttons">
+                <div class="radio-button">
+                  <input
+                    name="attending"
+                    type="radio"
+                    id="yesAttending"
+                    value="yes"
+                    required
+                  >
+                  </input>
+                  <label for="attending">{data.yesAttending}</label>
+                </div>
+                <div class="radio-button">
+                  <input
+                    name="attending"
+                    type="radio"
+                    id="notAttending"
+                    value="no"
+                  >
+                  </input>
+                  <label for="attending">{data.notAttending}</label>
+                </div>
+              </div>
+              {
+                <div>
+                  <label for="plusOne">{data.plusOne}</label>
+                  <input
+                    name="plusOne"
+                    type="text"
+                    placeholder={data.plusOnePlaceholder}
+                  />
+                </div>
+              }
+              <div class="checkbox">
+                <label for="welcomeParty">{data.welcomeParty}</label>
+                <input name="welcomeParty" type="checkbox" />
+              </div>
+              <div class="checkbox">
+                <label for="afterParty">{data.afterParty}</label>
+                <input name="afterParty" type="checkbox" />
+              </div>
+              <textarea
+                name="children"
+                placeholder={data.children}
+              />
+              <textarea
+                name="dietaryRequirements"
+                placeholder={data.dietaryRequirements}
+              />
+              <textarea
+                name="greetings"
+                placeholder={data.greetings}
+              />
+              <input name="id" type="hidden" value={data.pageId} />
+              <button>{data.submit}</button>
+            </form>
           </div>
-          <form action={`/response${data.languageParameter}`} method="POST">
-            <h2>RSVP</h2>
-            <p>Please respond by February 28.</p>
-            <h3>Your information</h3>
-            <p>{response.firstName} {response.lastName}</p>
-            <p>{response.email}</p>
-            <hr />
-            <div class="radio-buttons">
-              <div class="radio-button">
-                <input name="attending" type="radio" id="yesAttending" value="yes" required>
-                </input>
-                <label for="attending">{data.yesAttending}</label>
-              </div>
-              <div class="radio-button">
-                <input name="attending" type="radio" id="notAttending" value="no"></input>
-                <label for="attending">{data.notAttending}</label>
-              </div>
-            </div>
-            <div>
-              <label for="plusOne">{data.plusOne}</label>
-              <input name="plusOne" type="text" placeholder={data.plusOnePlaceholder} />
-            </div>
-            <div class="checkbox">
-              <label for="welcomeParty">{data.welcomeParty}</label>
-              <input name="welcomeParty" type="checkbox" />
-            </div>
-            <div class="checkbox">
-              <label for="afterParty">{data.afterParty}</label>
-              <input name="afterParty" type="checkbox" />
-            </div>
-            <textarea
-              name="children"
-              placeholder={data.children}
-            />
-            <textarea
-              name="dietaryRequirements"
-              placeholder={data.dietaryRequirements}
-            />
-            <textarea
-              name="greetings"
-              placeholder={data.greetings}
-            />
-            <input name="id" type="hidden" value={data.pageId} />
-            <button>{data.submit}</button>
-          </form>
         </section>
       </Layout>
     </>

@@ -65,7 +65,7 @@ export default function Home(props: PageProps<Data>) {
       </Head>
       <Layout>
         <section class="frame">
-          <h1>{data.mainHeading}</h1>
+          <h1 class="decorative-heading">{data.mainHeading}</h1>
           <p class="heading-sub">{data.headingSub}</p>
           <time>
             <strong>{data.date}</strong>
