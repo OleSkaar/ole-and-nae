@@ -8,7 +8,7 @@ import {
   Japanese,
   jpThankYouPageTranslations,
   LanguageParameter,
-} from "../components/translations.ts";
+} from "../components/translations.tsx";
 
 export interface ResponsePageTranslations {
   titleTag: string;

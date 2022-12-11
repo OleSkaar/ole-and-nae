@@ -6,7 +6,7 @@ import {
   Japanese,
   jpHomePageTranslations,
   LanguageParameter,
-} from "../components/translations.ts";
+} from "../components/translations.tsx";
 
 import { PageProps } from "$fresh/server.ts";
 

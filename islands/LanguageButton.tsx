@@ -1,32 +1,32 @@
-import { Japanese, LanguageParameter } from "../components/translations.ts";
+import { Japanese, LanguageParameter } from "../components/translations.tsx";
 
 export default function LanguageButton() {
-  const isJapanese = new URLSearchParams(window.location?.search).get(
-    LanguageParameter,
-  ) === Japanese;
+    const isJapanese =
+        new URLSearchParams(window.location?.search).get(LanguageParameter) ===
+        Japanese;
 
-  const handleClick = () => {
-    const newUrl = new URL(window?.location?.href);
+    const handleClick = () => {
+        const newUrl = new URL(window?.location?.href);
 
-    if (isJapanese) {
-      newUrl.searchParams.delete(LanguageParameter);
-    } else {
-      newUrl.searchParams.set(LanguageParameter, Japanese);
-    }
+        if (isJapanese) {
+            newUrl.searchParams.delete(LanguageParameter);
+        } else {
+            newUrl.searchParams.set(LanguageParameter, Japanese);
+        }
 
-    window.location.href = newUrl.href;
-  };
+        window.location.href = newUrl.href;
+    };
 
-  return (
-    <button
-      class="language-button"
-      type="button"
-      id="toggle"
-      role="switch"
-      aria-checked="true"
-      onClick={handleClick}
-    >
-      {isJapanese ? "EN" : "JP"}
-    </button>
-  );
+    return (
+        <button
+            class="language-button"
+            type="button"
+            id="toggle"
+            role="switch"
+            aria-checked="true"
+            onClick={handleClick}
+        >
+            {isJapanese ? "EN" : "JP"}
+        </button>
+    );
 }
