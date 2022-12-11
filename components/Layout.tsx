@@ -4,9 +4,10 @@ import LanguageButton from "../islands/LanguageButton.tsx";
 
 interface LayoutProps {
   children: ComponentChildren;
+  renderLanguageButton?: boolean;
 }
 
-export default function Layout({ children }: LayoutProps) {
+export default function Layout({ children, renderLanguageButton = true }: LayoutProps) {
   return (
     <>
       <Head>
@@ -16,7 +17,7 @@ export default function Layout({ children }: LayoutProps) {
       {
         <header>
           <a href="/">SAVE THE DATE</a>
-          <LanguageButton />
+          {renderLanguageButton && <LanguageButton />}
         </header>
       }
       <main>

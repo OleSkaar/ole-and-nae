@@ -3,26 +3,27 @@ import { asset, Head } from "$fresh/runtime.ts";
 import { Handlers } from "https://deno.land/x/fresh@1.1.1/server.ts";
 import {
   enInvitationPageTranslations,
-  Japanese,
   jpInvitationPageTranslations,
-  LanguageParameter,
-} from "../../components/translations.ts";
+} from "../../components/translations.tsx";
 
 import { PageProps } from "$fresh/server.ts";
 import { config } from "https://deno.land/std@0.159.0/dotenv/mod.ts";
 import { Client } from "https://deno.land/x/notion_sdk@v1.0.4/src/mod.ts";
 import {
+  getCheckboxProperty,
   getResultEmailProperty,
   getResultTextProperty,
 } from "../../utils/getResultProperty.ts";
 import Information from "../../components/Information.tsx";
 import Fleuron from "../../components/Fleuron.tsx";
+import { FunctionComponent, VNode } from "https://esm.sh/v94/preact@10.11.0/src/index";
 
 export interface InvitationPageTranslations {
   titleTag: string;
   metaDescription: string;
   mainHeading: string;
   headingSub: string;
+  personalizedIntro: (name: string) => string,
   firstName: string;
   lastName: string;
   email: string;
@@ -42,23 +43,16 @@ interface InviteeResponse {
   firstName: string;
   lastName: string;
   email: string;
+  isJapanese: boolean;
 }
 
 interface Data extends InvitationPageTranslations {
-  languageParameter: string;
   response: InviteeResponse;
   pageId: string;
 }
 
 export const handler: Handlers<Data> = {
   async GET(req, ctx) {
-    const parameter = `?${LanguageParameter}=${Japanese}`;
-    const translations = req.url.includes(parameter)
-      ? jpInvitationPageTranslations
-      : enInvitationPageTranslations;
-
-    const languageParameter = req.url.includes(parameter) ? parameter : "";
-
     const { id } = ctx.params;
 
     config({ export: true });
@@ -87,7 +81,12 @@ export const handler: Handlers<Data> = {
       firstName: getResultTextProperty(result, "First name"),
       lastName: getResultTextProperty(result, "Last name"),
       email: getResultEmailProperty(result),
+      isJapanese: getCheckboxProperty(result, "Is Japanese"),
     };
+
+    const translations = response.isJapanese
+      ? jpInvitationPageTranslations
+      : enInvitationPageTranslations;
 
     // const response: InviteeResponse = {
     //   firstName: "Test",
@@ -95,7 +94,7 @@ export const handler: Handlers<Data> = {
     //   email: "testuser@test.com",
     // };
 
-    return ctx.render({ languageParameter, response, ...translations, pageId });
+    return ctx.render({ response, ...translations, pageId });
   },
 };
 
@@ -119,20 +118,20 @@ export default function Invitation(props: PageProps<Data>) {
           content={`https://oleandnae2023.com${image}`}
         />
       </Head>
-      <Layout>
+      <Layout renderLanguageButton={false}>
         <section class="frame">
           <h1 class="decorative-heading">{data.mainHeading}</h1>
           <p className="heading-sub">{data.headingSub}</p>
           <div class="info">
             <p>
-              {`Dear ${response.firstName}, you're invited to our wedding on July 1 2023.`}
+              {data.personalizedIntro(response.firstName)}
             </p>
             <p>We're very excited and hope you're able to attend!</p>
             <Fleuron />
-            <Information />
+            <Information isJapanese={response.isJapanese} />
             <Fleuron />
 
-            <form action={`/response${data.languageParameter}`} method="POST">
+            <form action={"/response"} method="POST">
               <h2>RSVP</h2>
               <p>Please respond by February 28.</p>
               <h3>Your information</h3>
