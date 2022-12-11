@@ -3,26 +3,24 @@ import { ComponentChildren } from "preact";
 import LanguageButton from "../islands/LanguageButton.tsx";
 
 interface LayoutProps {
-  children: ComponentChildren;
-  renderLanguageButton?: boolean;
+    children: ComponentChildren;
+    renderHeader?: boolean;
 }
 
-export default function Layout({ children, renderLanguageButton = true }: LayoutProps) {
-  return (
-    <>
-      <Head>
-        <link rel="stylesheet" href={asset("/global.css")} />
-        <link rel="icon" type="image/x-icon" href="/favicon.png"></link>
-      </Head>
-      {
-        <header>
-          <a href="/">SAVE THE DATE</a>
-          {renderLanguageButton && <LanguageButton />}
-        </header>
-      }
-      <main>
-        {children}
-      </main>
-    </>
-  );
+export default function Layout({ children, renderHeader = true }: LayoutProps) {
+    return (
+        <>
+            <Head>
+                <link rel="stylesheet" href={asset("/global.css")} />
+                <link rel="icon" type="image/x-icon" href="/favicon.png"></link>
+            </Head>
+            {
+                <header>
+                    {renderHeader && <a href="/">SAVE THE DATE</a>}
+                    {renderHeader && <LanguageButton />}
+                </header>
+            }
+            <main>{children}</main>
+        </>
+    );
 }
