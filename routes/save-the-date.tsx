@@ -78,6 +78,32 @@ export default function Home(props: PageProps<Data>) {
             src={image}
             alt="A line drawing of Osaka Castle."
           />
+          <p>{data.invitationToFollow}</p>
+          <p>{data.sendUsYourEmail}</p>
+          <form action={`/thanks${data.languageParameter}`} method="POST">
+            <input
+              name="firstName"
+              autoComplete="given-name"
+              placeholder={data.firstName}
+              type="text"
+              required
+            />
+            <input
+              name="lastName"
+              autoComplete="family-name"
+              placeholder={data.lastName}
+              type="text"
+              required
+            />
+            <input
+              name="email"
+              type="email"
+              autoComplete="email"
+              placeholder={data.email}
+              required
+            />
+            <button>{data.submit}</button>
+          </form>
           <p>{data.weHopeYouCanAttend}</p>
         </section>
       </Layout>

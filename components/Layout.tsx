@@ -18,7 +18,7 @@ export default function Layout({ children, renderHeader = true, mainClass }: Lay
             </Head>
             {renderHeader && 
                 <header>
-                    <a href="/">SAVE THE DATE</a>
+                    {/* <a href="/">SAVE THE DATE</a> */}
                     <LanguageButton />
                 </header>
             }
