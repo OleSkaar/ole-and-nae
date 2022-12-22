@@ -89,6 +89,9 @@ export const handler: Handlers = {
             },
           ],
         },
+        'Has responded': {
+          checkbox: true
+        }
       },
     });
 
@@ -114,7 +117,7 @@ export default function Response(props: PageProps<Data>) {
       <Head>
         <title>{props.data?.titleTag}</title>
       </Head>
-      <Layout>
+      <Layout renderHeader={false} mainClass={'response'}>
         <section className="frame">
           <h1>{props.data?.mainHeading}</h1>
           <address>{props.data?.email}</address>
