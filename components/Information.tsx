@@ -45,6 +45,11 @@ export default function Information({ isJapanese }: InformationProps) {
                 Osaka Geihinkan
               </a>
             </p>
+            <h3>Plus one</h3>
+            <p>
+              You may bring a guest with you. Let us know in the RSVP form
+              below.
+            </p>
             <h3>Schedule</h3>
             The doors will open at 15:30, one hour before the ceremony. All
             guests are invited to a tea ceremony in the Japanese garden by the
