@@ -99,8 +99,6 @@ export const handler: Handlers<Data> = {
       content: getResultTextProperty(result, "Greetings")
     }))
 
-    console.log(greetingsResponse)
-
     const result = invitee.results[0];
 
     const pageId = result.id;

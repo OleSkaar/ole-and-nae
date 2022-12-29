@@ -68,8 +68,6 @@ export const handler: Handlers = {
             },
           },
         });
-        console.log(response);
-        console.log("Success! Entry added.");
       } catch (error) {
         console.error(error.body);
       }
