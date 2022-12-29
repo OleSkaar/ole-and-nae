@@ -94,8 +94,16 @@ h2 {
   padding-top: 0.5rem;
 }
 
-section.frame {
+section.frame,
+div.frame {
   background-color: bisque;
   z-index: 1;
   width: clamp(10ch, 90vw, 75ch);
+}
+
+.greetings {
+  z-index: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 30px;
 }

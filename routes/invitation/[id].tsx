@@ -20,6 +20,7 @@ import {
   FunctionComponent,
   VNode,
 } from "https://esm.sh/v94/preact@10.11.0/src/index";
+import GreetingCard from "../../components/GreetingCard.tsx";
 
 export interface InvitationPageTranslations {
   titleTag: string;
@@ -50,8 +51,14 @@ interface InviteeResponse {
   hasResponded: boolean;
 }
 
+interface GreetingsResponse {
+  content: string;
+  name: string;
+}
+
 interface Data extends InvitationPageTranslations {
   response: InviteeResponse;
+  greetingsResponse: GreetingsResponse[];
   pageId: string;
 }
 
@@ -76,6 +83,23 @@ export const handler: Handlers<Data> = {
         },
       },
     });
+
+    const responses = await notion.databases.query({
+      database_id: Deno.env.get("NOTION_DATABASE_ID") as string,
+      filter: {
+        property: "GreetingApproved",
+        "checkbox": {
+          "equals": true,
+        }
+      }
+    })
+
+    const greetingsResponse = responses.results.map(result => ({
+      name: getResultTextProperty(result, "First name") + ' ' + getResultTextProperty(result, "Last name"),
+      content: getResultTextProperty(result, "Greetings")
+    }))
+
+    console.log(greetingsResponse)
 
     const result = invitee.results[0];
 
@@ -102,13 +126,13 @@ export const handler: Handlers<Data> = {
       ? jpInvitationPageTranslations
       : enInvitationPageTranslations;
 
-    return ctx.render({ response, ...translations, pageId });
+    return ctx.render({ response, greetingsResponse, ...translations, pageId });
   },
 };
 
 export default function Invitation(props: PageProps<Data>) {
   const { data } = props;
-  const { response } = data;
+  const { response, greetingsResponse } = data;
   const title = data.titleTag;
   const description = data.metaDescription;
   const image = "/osaka-castle.webp";
@@ -142,6 +166,7 @@ export default function Invitation(props: PageProps<Data>) {
           <nav class="links">
             <a href="#information">Info</a>
             <a href="#form">RSVP</a>
+            <a href="#greetings">Greetings</a>
           </nav>
         </section>
         <div class="parallax"></div>
@@ -153,6 +178,7 @@ export default function Invitation(props: PageProps<Data>) {
           <nav class="links">
             <a href="#top">Top</a>
             <a href="#form">RSVP</a>
+            <a href="#greetings">Greetings</a>
           </nav>
         </section>
         <section class="frame">
@@ -243,6 +269,19 @@ export default function Invitation(props: PageProps<Data>) {
                 </form>
               )}
           </div>
+        </section>
+        <section class="greetings" id="greetings">
+          <div class="frame">
+            <h2>Greetings from the guests</h2>
+            <p>Any greetings you send will be posted here!</p>
+            <Fleuron />
+            <nav class="links">
+              <a href="#top">Top</a>
+              <a href="#information">Info</a>
+              <a href="#form">RSVP</a>
+            </nav>
+          </div>
+          {greetingsResponse.map(greeting => <GreetingCard name={greeting.name} content={greeting.content} />)}
         </section>
       </Layout>
     </>
