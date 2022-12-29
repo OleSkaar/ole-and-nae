@@ -3,23 +3,27 @@
 // This file is automatically updated during development when running `dev.ts`.
 
 import config from "./deno.json" assert { type: "json" };
-import * as $0 from "./routes/index.tsx";
-import * as $1 from "./routes/invitation/[id].tsx";
-import * as $2 from "./routes/response.tsx";
-import * as $3 from "./routes/save-the-date.tsx";
-import * as $4 from "./routes/thanks.tsx";
-import * as $$0 from "./islands/LanguageButton.tsx";
+import * as $0 from "./routes/emailer/[id].tsx";
+import * as $1 from "./routes/index.tsx";
+import * as $2 from "./routes/invitation/[id].tsx";
+import * as $3 from "./routes/response.tsx";
+import * as $4 from "./routes/save-the-date.tsx";
+import * as $5 from "./routes/thanks.tsx";
+import * as $$0 from "./islands/EmailCopyer.jsx";
+import * as $$1 from "./islands/LanguageButton.tsx";
 
 const manifest = {
   routes: {
-    "./routes/index.tsx": $0,
-    "./routes/invitation/[id].tsx": $1,
-    "./routes/response.tsx": $2,
-    "./routes/save-the-date.tsx": $3,
-    "./routes/thanks.tsx": $4,
+    "./routes/emailer/[id].tsx": $0,
+    "./routes/index.tsx": $1,
+    "./routes/invitation/[id].tsx": $2,
+    "./routes/response.tsx": $3,
+    "./routes/save-the-date.tsx": $4,
+    "./routes/thanks.tsx": $5,
   },
   islands: {
-    "./islands/LanguageButton.tsx": $$0,
+    "./islands/EmailCopyer.jsx": $$0,
+    "./islands/LanguageButton.tsx": $$1,
   },
   baseUrl: import.meta.url,
   config,
