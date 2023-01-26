@@ -20,8 +20,15 @@
 
 
 @media only screen and (orientation: landscape) {
-  .outer-frame {
-    margin: 25px;
+  body {
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  main {
+    margin-top: 0 !important;
   }
 
   .booklet {
