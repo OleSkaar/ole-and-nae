@@ -1,0 +1,40 @@
+.outer-frame {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.booklet {
+  text-align: center;
+}
+
+.booklet > .frame {
+  width: 100%;
+}
+
+@media only screen and (orientation: portrait) {
+  .frame.invitation-image {
+    border-top-width: 0;
+  }
+}
+
+
+@media only screen and (orientation: landscape) {
+  .outer-frame {
+    margin: 25px;
+  }
+
+  .booklet {
+    max-width: 1366px;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+  }
+
+  .invitation-text:first-child {
+    border-right-width: 2.5px;
+  }
+  
+  .invitation-image:last-child {
+    border-left-width: 2.5px;
+  }
+}
