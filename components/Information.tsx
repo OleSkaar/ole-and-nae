@@ -9,22 +9,31 @@ export default function Information({ isJapanese }: InformationProps) {
       {isJapanese
         ? (
           <>
-            <h3>Location</h3>
+            <h3>LOCATION</h3>
+            <p>場所</p>
             <p>
-              The wedding will take place at Osaka Gehihinkan Nishinomaru
-              Garden, next to Osaka Castle.
+              大阪城西の丸庭園　大阪迎賓館
             </p>
             <address>
-              2 Osakajo, Chuo Ward, Osaka, 540-0002, Japan.
+              〒540-0002
             </address>
             <p>
-              <a
-                href="https://www.google.com/maps/place/OSAKA+GEIHINKAN+(+Former+Guest+House+)+in+the+lush+grounds+of+Nishinomaru+Garden+of+Osaka+Castle+Park/@34.6833253,135.5318128,15.42z/data=!4m13!1m7!3m6!1s0x6000e6553406e2e1:0xc55bc16ee46a2fe7!2sOsaka,+Japan!3b1!8m2!3d34.6937249!4d135.5022535!3m4!1s0x6000e72cf78fffff:0x2914f59b07aac290!8m2!3d34.6881267!4d135.5228987"
-                target="_blank"
-              >
-                Osaka Geihinkan
-              </a>
+              大阪府　大阪市　中央区　大阪城２（大阪城西ノ丸庭園内）
             </p>
+            <h3>SCHEDULE</h3>
+            <p>15時半より開場いたします。ゲストの皆様には茶室『豊松庵』にて</p>
+            <p>挙式の時間までお茶を楽しんでいただけます。</p>
+            <p>挙式は１６時半より開始予定です。</p>
+            <h4>二次会 (AFTERPARTY)</h4>
+            <p>披露宴の後に二次会（アフターパーティー）を予定しております。</p>
+            <p>２１時ごろより皆様と音楽やダンスを楽しめる時間にできたらと思っております。</p>
+            <p>場所はおってお知らせさせていただきます。</p>
+            <h4>ウェルカムパーティー (WELCOME PARTY)</h4>
+            <p>私たちのウェディングには世界各国よりゲストの皆さんがいらっしゃいます。</p>
+            <p>大切な友人、家族と少しでも素敵な時間を過ごしていただきたく、結婚式前夜に小さなパーティーを開きたいと思います。</p>
+            <p>日時　６月３０日　詳細はまた後日お知らせいたします。</p>
+            <h4>ドレスコード (DRESS CODE)</h4>
+            <p>フォーマル/ カクテル　</p>
           </>
         )
         : (

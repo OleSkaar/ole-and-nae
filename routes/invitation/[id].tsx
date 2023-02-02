@@ -49,6 +49,7 @@ interface InviteeResponse {
   email: string;
   isJapanese: boolean;
   hasResponded: boolean;
+  shouldHavePlusOne: boolean;
 }
 
 interface GreetingsResponse {
@@ -90,14 +91,15 @@ export const handler: Handlers<Data> = {
         property: "GreetingApproved",
         "checkbox": {
           "equals": true,
-        }
-      }
-    })
+        },
+      },
+    });
 
-    const greetingsResponse = responses.results.map(result => ({
-      name: getResultTextProperty(result, "First name") + ' ' + getResultTextProperty(result, "Last name"),
-      content: getResultTextProperty(result, "Greetings")
-    }))
+    const greetingsResponse = responses.results.map((result) => ({
+      name: getResultTextProperty(result, "First name") + " " +
+        getResultTextProperty(result, "Last name"),
+      content: getResultTextProperty(result, "Greetings"),
+    }));
 
     const result = invitee.results[0];
 
@@ -109,6 +111,7 @@ export const handler: Handlers<Data> = {
       email: getResultEmailProperty(result),
       isJapanese: getCheckboxProperty(result, "Is Japanese"),
       hasResponded: getCheckboxProperty(result, "Has responded"),
+      shouldHavePlusOne: getCheckboxProperty(result, "ShouldHavePlusOne")
     };
 
     // const response: InviteeResponse = {
@@ -131,6 +134,7 @@ export const handler: Handlers<Data> = {
 export default function Invitation(props: PageProps<Data>) {
   const { data } = props;
   const { response, greetingsResponse } = data;
+  const { isJapanese } = response;
   const title = data.titleTag;
   const description = data.metaDescription;
   const image = "/osaka-castle.webp";
@@ -153,12 +157,26 @@ export default function Invitation(props: PageProps<Data>) {
           <h1 class="decorative-heading">{data.mainHeading}</h1>
           <p className="heading-sub">{data.headingSub}</p>
           <div class="info">
-            <p class="intro">
-              {data.personalizedIntro(response.firstName)}
-            </p>
-            <p class="intro">
-              We're very excited and hope you're able to attend!
-            </p>
+            {isJapanese
+              ? (
+                <>
+                    <p class="intro">{response.firstName}様、</p>
+                    <p>この度私たちは結婚することになりました。</p>
+                    <p>つきましては日頃お世話になっている皆様に</p>
+                    <p>ご挨拶もかねてささやかなパーティーを催したいと思います。</p>
+                    <p>皆様に楽しんでいただければ幸いです。</p>
+                </>
+              )
+              : (
+                <>
+                  <p class="intro">
+                    {data.personalizedIntro(response.firstName)}
+                  </p>
+                  <p class="intro">
+                    We're very excited and hope you're able to attend!
+                  </p>
+                </>
+              )}
           </div>
           <Fleuron />
           <nav class="links">
@@ -170,7 +188,7 @@ export default function Invitation(props: PageProps<Data>) {
         <div class="parallax"></div>
         <section class="frame">
           <div class="info" id="information">
-            <Information isJapanese={response.isJapanese} />
+            <Information isJapanese={isJapanese} />
           </div>
           <Fleuron />
           <nav class="links">
@@ -182,15 +200,20 @@ export default function Invitation(props: PageProps<Data>) {
         <section class="frame">
           <div class="info">
             {response.hasResponded
-              ? <div>
+              ? (
+                <div>
                   <p>You have already responded!</p>
-                  <p>If you want to change something on your invite, just send me a message or an email at:</p>
+                  <p>
+                    If you want to change something on your invite, just send me
+                    a message or an email at:
+                  </p>
                   <a href="mailto:olejohska@gmail.com">olejohska@gmail.com</a>
                 </div>
+              )
               : (
                 <form action={"/response"} method="POST" id="form">
                   <h2>RSVP</h2>
-                  <p>Please respond by February 28.</p>
+                  <p>{isJapanese ? 'お手数ですがご都合のほど3月15日までにご一報お願い申し上げます。' : 'Please respond by February 28.'}</p>
                   <h3>Your information</h3>
                   <p>
                     {response.firstName} {response.lastName}
@@ -224,7 +247,7 @@ export default function Invitation(props: PageProps<Data>) {
                       </label>
                     </div>
                   </div>
-                  {
+                  {(!isJapanese || (isJapanese && response.shouldHavePlusOne)) &&
                     <div>
                       <label for="plusOne">{data.plusOne}</label>
                       <input
@@ -279,7 +302,9 @@ export default function Invitation(props: PageProps<Data>) {
               <a href="#form">RSVP</a>
             </nav>
           </div>
-          {greetingsResponse.map(greeting => <GreetingCard name={greeting.name} content={greeting.content} />)}
+          {greetingsResponse.map((greeting) => (
+            <GreetingCard name={greeting.name} content={greeting.content} />
+          ))}
         </section>
       </Layout>
     </>
