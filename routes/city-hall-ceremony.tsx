@@ -42,7 +42,7 @@ export default function CeremonyInvite() {
             </p>
             <p>
               <em>
-                Please let us know if you have any dietary considerations we
+                Please let us know if you have any dietary restrictions we
                 should inform the restaurant about.
               </em>
             </p>

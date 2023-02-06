@@ -39,8 +39,13 @@ export interface InvitationPageTranslations {
   welcomeParty: string;
   afterParty: string;
   greetings: string;
+  greetingsFormField: string;
   yesAttending: string;
   notAttending: string;
+  greetingsHeader: string;
+  greetingsText: string;
+  youHaveRespondedHeader: string;
+  youHaveRespondedText: string;
 }
 
 interface InviteeResponse {
@@ -138,6 +143,7 @@ export default function Invitation(props: PageProps<Data>) {
   const title = data.titleTag;
   const description = data.metaDescription;
   const image = "/osaka-castle.webp";
+  const shouldHavePlusOne = !isJapanese || (isJapanese && response.shouldHavePlusOne);
 
   return (
     <>
@@ -182,7 +188,7 @@ export default function Invitation(props: PageProps<Data>) {
           <nav class="links">
             <a href="#information">Info</a>
             <a href="#form">RSVP</a>
-            <a href="#greetings">Greetings</a>
+            <a href="#greetings">{data.greetings}</a>
           </nav>
         </section>
         <div class="parallax"></div>
@@ -202,10 +208,9 @@ export default function Invitation(props: PageProps<Data>) {
             {response.hasResponded
               ? (
                 <div>
-                  <p>You have already responded!</p>
+                  <p>{data.youHaveRespondedHeader}</p>
                   <p>
-                    If you want to change something on your invite, just send me
-                    a message or an email at:
+                    {data.youHaveRespondedText}
                   </p>
                   <a href="mailto:olejohska@gmail.com">olejohska@gmail.com</a>
                 </div>
@@ -213,7 +218,7 @@ export default function Invitation(props: PageProps<Data>) {
               : (
                 <form action={"/response"} method="POST" id="form">
                   <h2>RSVP</h2>
-                  <p>{isJapanese ? 'お手数ですがご都合のほど3月15日までにご一報お願い申し上げます。' : 'Please respond by February 28.'}</p>
+                  {isJapanese ? <p>お手数ですがご都合のほど3月15日までに<br />ご一報お願い申し上げます。</p> : <p>Please respond by February 28.</p>}
                   <h3>Your information</h3>
                   <p>
                     {response.firstName} {response.lastName}
@@ -247,7 +252,7 @@ export default function Invitation(props: PageProps<Data>) {
                       </label>
                     </div>
                   </div>
-                  {(!isJapanese || (isJapanese && response.shouldHavePlusOne)) &&
+                  {shouldHavePlusOne &&
                     <div>
                       <label for="plusOne">{data.plusOne}</label>
                       <input
@@ -269,17 +274,17 @@ export default function Invitation(props: PageProps<Data>) {
                     </label>
                     <input name="afterParty" type="checkbox" />
                   </div>
-                  <textarea
+                  {shouldHavePlusOne && <textarea
                     name="children"
                     placeholder={data.children}
-                  />
+                  />}
                   <textarea
                     name="dietaryRequirements"
                     placeholder={data.dietaryRequirements}
                   />
                   <textarea
                     name="greetings"
-                    placeholder={data.greetings}
+                    placeholder={data.greetingsFormField}
                   />
                   <input
                     name="id"
@@ -293,8 +298,8 @@ export default function Invitation(props: PageProps<Data>) {
         </section>
         <section class="greetings" id="greetings">
           <div class="frame">
-            <h2>Greetings from the guests</h2>
-            <p>Any greetings you send will be posted here!</p>
+            <h2>{data.greetingsHeader}</h2>
+            <p>{data.greetingsText}</p>
             <Fleuron />
             <nav class="links">
               <a href="#top">Top</a>
