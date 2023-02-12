@@ -55,6 +55,7 @@ interface InviteeResponse {
   isJapanese: boolean;
   hasResponded: boolean;
   shouldHavePlusOne: boolean;
+  shouldHaveOnlyMainInvitation: boolean;
 }
 
 interface GreetingsResponse {
@@ -116,7 +117,11 @@ export const handler: Handlers<Data> = {
       email: getResultEmailProperty(result),
       isJapanese: getCheckboxProperty(result, "Is Japanese"),
       hasResponded: getCheckboxProperty(result, "Has responded"),
-      shouldHavePlusOne: getCheckboxProperty(result, "ShouldHavePlusOne")
+      shouldHavePlusOne: getCheckboxProperty(result, "ShouldHavePlusOne"),
+      shouldHaveOnlyMainInvitation: getCheckboxProperty(
+        result,
+        "ShouldHaveOnlyMainInvitation",
+      ),
     };
 
     // const response: InviteeResponse = {
@@ -143,7 +148,8 @@ export default function Invitation(props: PageProps<Data>) {
   const title = data.titleTag;
   const description = data.metaDescription;
   const image = "/osaka-castle.webp";
-  const shouldHavePlusOne = !isJapanese || (isJapanese && response.shouldHavePlusOne);
+  const shouldHavePlusOne = !isJapanese ||
+    (isJapanese && response.shouldHavePlusOne);
 
   return (
     <>
@@ -166,11 +172,11 @@ export default function Invitation(props: PageProps<Data>) {
             {isJapanese
               ? (
                 <>
-                    <p class="intro">{response.firstName}様、</p>
-                    <p>この度私たちは結婚することになりました。</p>
-                    <p>つきましては日頃お世話になっている皆様に</p>
-                    <p>ご挨拶もかねてささやかなパーティーを催したいと思います。</p>
-                    <p>皆様に楽しんでいただければ幸いです。</p>
+                  <p class="intro">{response.firstName}様、</p>
+                  <p>この度私たちは結婚することになりました。</p>
+                  <p>つきましては日頃お世話になっている皆様に</p>
+                  <p>ご挨拶もかねてささやかなパーティーを催したいと思います。</p>
+                  <p>皆様に楽しんでいただければ幸いです。</p>
                 </>
               )
               : (
@@ -218,7 +224,13 @@ export default function Invitation(props: PageProps<Data>) {
               : (
                 <form action={"/response"} method="POST" id="form">
                   <h2>RSVP</h2>
-                  {isJapanese ? <p>お手数ですがご都合のほど3月15日までに<br />ご一報お願い申し上げます。</p> : <p>Please respond by February 28.</p>}
+                  {isJapanese
+                    ? (
+                      <p>
+                        お手数ですがご都合のほど3月15日までに<br />ご一報お願い申し上げます。
+                      </p>
+                    )
+                    : <p>Please respond by February 28.</p>}
                   <h3>Your information</h3>
                   <p>
                     {response.firstName} {response.lastName}
@@ -253,31 +265,38 @@ export default function Invitation(props: PageProps<Data>) {
                     </div>
                   </div>
                   {shouldHavePlusOne &&
-                    <div>
-                      <label for="plusOne">{data.plusOne}</label>
-                      <input
-                        name="plusOne"
-                        type="text"
-                        placeholder={data.plusOnePlaceholder}
-                      />
-                    </div>
-                  }
-                  <div class="checkbox">
-                    <label for="welcomeParty">
-                      {data.welcomeParty}
-                    </label>
-                    <input name="welcomeParty" type="checkbox" />
-                  </div>
-                  <div class="checkbox">
-                    <label for="afterParty">
-                      {data.afterParty}
-                    </label>
-                    <input name="afterParty" type="checkbox" />
-                  </div>
-                  {shouldHavePlusOne && <textarea
-                    name="children"
-                    placeholder={data.children}
-                  />}
+                    (
+                      <div>
+                        <label for="plusOne">{data.plusOne}</label>
+                        <input
+                          name="plusOne"
+                          type="text"
+                          placeholder={data.plusOnePlaceholder}
+                        />
+                      </div>
+                    )}
+                  {!response.shouldHaveOnlyMainInvitation && (
+                    <>
+                      <div class="checkbox">
+                        <label for="welcomeParty">
+                          {data.welcomeParty}
+                        </label>
+                        <input name="welcomeParty" type="checkbox" />
+                      </div>
+                      <div class="checkbox">
+                        <label for="afterParty">
+                          {data.afterParty}
+                        </label>
+                        <input name="afterParty" type="checkbox" />
+                      </div>
+                    </>
+                  )}
+                  {shouldHavePlusOne && (
+                    <textarea
+                      name="children"
+                      placeholder={data.children}
+                    />
+                  )}
                   <textarea
                     name="dietaryRequirements"
                     placeholder={data.dietaryRequirements}
