@@ -1,8 +1,9 @@
 interface InformationProps {
   isJapanese: boolean;
+  shouldHaveOnlyMainInvitation: boolean;
 }
 
-export default function Information({ isJapanese }: InformationProps) {
+export default function Information({ isJapanese, shouldHaveOnlyMainInvitation }: InformationProps) {
   return (
     <div class="information">
       <h2>Information</h2>
@@ -24,16 +25,23 @@ export default function Information({ isJapanese }: InformationProps) {
             <p>ゲストの皆様には茶室『豊松庵』にて</p>
             <p>挙式の時間までお茶を楽しんでいただけます。</p>
             <p>挙式は１６時半より開始予定です。</p>
-            <h4>二次会 (AFTERPARTY)</h4>
-            <p>披露宴の後に二次会（アフターパーティー）を予定しております。</p>
-            <p>２１時ごろより皆様と音楽やダンスを</p>
-            <p>楽しめる時間にできたらと思っております。</p>
-            <p>場所はおってお知らせさせていただきます。</p>
-            <h4>ウェルカムパーティー <br/>(WELCOME PARTY)</h4>
-            <p>私たちのウェディングには世界各国よりゲストの皆さんがいらっしゃいます。</p>
-            <p>大切な友人、家族と少しでも素敵な時間を過ごしていただきたく、結婚式前夜に小さなパーティーを開きたいと思います。</p>
-            <p>日時 ６月３０日</p>
-            <p>詳細はまた後日お知らせいたします。</p>
+            {shouldHaveOnlyMainInvitation &&
+              (
+                <>
+                  <h4>二次会 (AFTERPARTY)</h4>
+                  <p>披露宴の後に二次会（アフターパーティー）を予定しております。</p>
+                  <p>２１時ごろより皆様と音楽やダンスを</p>
+                  <p>楽しめる時間にできたらと思っております。</p>
+                  <p>場所はおってお知らせさせていただきます。</p>
+                  <h4>
+                    ウェルカムパーティー <br />(WELCOME PARTY)
+                  </h4>
+                  <p>私たちのウェディングには世界各国よりゲストの皆さんがいらっしゃいます。</p>
+                  <p>大切な友人、家族と少しでも素敵な時間を過ごしていただきたく、結婚式前夜に小さなパーティーを開きたいと思います。</p>
+                  <p>日時 ６月３０日</p>
+                  <p>詳細はまた後日お知らせいたします。</p>
+                </>
+              )}
             <h4>ドレスコード (DRESS CODE)</h4>
             <p>フォーマル/ カクテル</p>
           </>

@@ -144,7 +144,7 @@ export const handler: Handlers<Data> = {
 export default function Invitation(props: PageProps<Data>) {
   const { data } = props;
   const { response, greetingsResponse } = data;
-  const { isJapanese } = response;
+  const { isJapanese, shouldHaveOnlyMainInvitation } = response;
   const title = data.titleTag;
   const description = data.metaDescription;
   const image = "/osaka-castle.webp";
@@ -200,7 +200,7 @@ export default function Invitation(props: PageProps<Data>) {
         <div class="parallax"></div>
         <section class="frame">
           <div class="info" id="information">
-            <Information isJapanese={isJapanese} />
+            <Information isJapanese={isJapanese} shouldHaveOnlyMainInvitation={shouldHaveOnlyMainInvitation} />
           </div>
           <Fleuron />
           <nav class="links">
@@ -275,7 +275,7 @@ export default function Invitation(props: PageProps<Data>) {
                         />
                       </div>
                     )}
-                  {!response.shouldHaveOnlyMainInvitation && (
+                  {!shouldHaveOnlyMainInvitation && (
                     <>
                       <div class="checkbox">
                         <label for="welcomeParty">
