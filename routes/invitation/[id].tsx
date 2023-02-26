@@ -172,7 +172,7 @@ export default function Invitation(props: PageProps<Data>) {
             {isJapanese
               ? (
                 <>
-                  <p class="intro">{response.firstName}様、</p>
+                  <p class="intro">{response.firstName}{'　'}{response.lastName}様、</p>
                   <p>この度私たちは結婚することになりました。</p>
                   <p>つきましては日頃お世話になっている皆様に</p>
                   <p>ご挨拶もかねてささやかなパーティーを催したいと思います。</p>
