@@ -25,7 +25,7 @@ export default function Information({ isJapanese, shouldHaveOnlyMainInvitation }
             <p>ゲストの皆様には茶室『豊松庵』にて</p>
             <p>挙式の時間までお茶を楽しんでいただけます。</p>
             <p>挙式は１６時半より開始予定です。</p>
-            {shouldHaveOnlyMainInvitation &&
+            {!shouldHaveOnlyMainInvitation &&
               (
                 <>
                   <h4>二次会 (AFTERPARTY)</h4>
