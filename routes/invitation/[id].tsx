@@ -230,7 +230,7 @@ export default function Invitation(props: PageProps<Data>) {
                         お手数ですがご都合のほど3月31日までに<br />ご一報お願い申し上げます。
                       </p>
                     )
-                    : <p>Please respond by February 28.</p>}
+                    : <p>Please respond by March 31.</p>}
                   <h3>Your information</h3>
                   <p>
                     {response.firstName} {response.lastName}
