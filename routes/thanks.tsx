@@ -32,7 +32,7 @@ export const handler: Handlers = {
 
     const notion = new Client({
       auth: Deno.env.get("NOTION_TOKEN"),
-    });
+    }); 
 
     async function addItem() {
       try {
