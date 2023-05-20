@@ -143,3 +143,11 @@ summary {
   align-items: center;
   min-height: 100vh;
 }
+
+.nav > ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  gap: 10px;
+}

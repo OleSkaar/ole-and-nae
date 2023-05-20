@@ -9,19 +9,36 @@ interface LayoutProps {
     mainClass?: string;
 }
 
-export default function Layout({ children, renderHeader = true, mainClass }: LayoutProps) {
+export default function Layout({
+    children,
+    renderHeader = true,
+    mainClass,
+}: LayoutProps) {
     return (
         <>
             <Head>
                 <link rel="stylesheet" href={asset("/global.css")} />
                 <link rel="icon" type="image/x-icon" href="/favicon.png"></link>
             </Head>
-            {renderHeader && 
+            {renderHeader && (
                 <header>
                     {/* <a href="/">SAVE THE DATE</a> */}
+                    <nav class="nav">
+                        <ul>
+                            <li>
+                                <a href={"/"}>Home</a>
+                            </li>
+                            <li>
+                                <a href={"/info"}>Info</a>
+                            </li>
+                            <li>
+                                <a href={"/photos"}>Photos</a>
+                            </li>
+                        </ul>
+                    </nav>
                     <LanguageButton />
                 </header>
-            }
+            )}
             <main class={mainClass}>{children}</main>
         </>
     );

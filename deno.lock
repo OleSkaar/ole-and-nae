@@ -1,6 +1,15 @@
 {
   "version": "2",
   "remote": {
+    "https://cdn.jsdelivr.net/npm/@supabase/functions-js@2.1.1/+esm": "d987ddd158665dacc6691eb8154953988c290c6b07afb295cc86cae8271ea400",
+    "https://cdn.jsdelivr.net/npm/@supabase/gotrue-js@2.26.0/+esm": "884961eb6b13e48a826cb82139e36827a5bdc330ca2ccfc973c3ca6231732f94",
+    "https://cdn.jsdelivr.net/npm/@supabase/postgrest-js@1.6.1/+esm": "24facccb229d5965b9fbdc6427c55663035727967354f7b2dfbf3aa6d3e82e8d",
+    "https://cdn.jsdelivr.net/npm/@supabase/realtime-js@2.7.2/+esm": "a65b297ccabed9335d1c72d765a3567a0eb10dada3c8c423b1eb0e9cd0a5db88",
+    "https://cdn.jsdelivr.net/npm/@supabase/storage-js@2.5.1/+esm": "b147937784158276e12647e4a0e39bb80074a490522088da0766291d2752941e",
+    "https://cdn.jsdelivr.net/npm/@supabase/supabase-js/+esm": "132398c79feeacbb5d4feff13c9626711f61cbe2cab57eca9a91bd96efa90578",
+    "https://cdn.jsdelivr.net/npm/cross-fetch@3.1.5/+esm": "f39300ec8eaf5a1a250578bac832593d3ef6e695c17b225822dfac6d00f2ff58",
+    "https://cdn.jsdelivr.net/npm/cross-fetch@3.1.6/+esm": "1961f38c6bcc82f8026af30fd33f4a7287a60d74bc48cad9af7e096aa7412da1",
+    "https://cdn.jsdelivr.net/npm/websocket@1.0.34/+esm": "467e4f587943c6e2f65a810287ec3099c8ead2ec8a5a82de171fb256060c2907",
     "https://deno.land/std@0.140.0/_util/assert.ts": "e94f2eb37cebd7f199952e242c77654e43333c1ac4c5c700e929ea3aa5489f74",
     "https://deno.land/std@0.140.0/_util/os.ts": "3b4c6e27febd119d36a416d7a97bd3b0251b77c88942c8f16ee5953ea13e2e49",
     "https://deno.land/std@0.140.0/fs/_util.ts": "0fb24eb4bfebc2c194fb1afdb42b9c3dda12e368f43e8f2321f84fc77d42cb0f",
