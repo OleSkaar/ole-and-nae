@@ -1,0 +1,16 @@
+.frame p {
+  width: 100%;
+  text-align: center;
+}
+
+address {
+  text-align: center;
+}
+
+input {
+  padding: 10px;
+}
+
+.parallax.bw-background {
+  background-image: url('https://ik.imagekit.io/ixlnm8yvt/Nae_OleMain2bw.jpg?updatedAt=1685044334801');
+}
