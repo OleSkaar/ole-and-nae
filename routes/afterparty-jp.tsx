@@ -30,20 +30,18 @@ export default function AfterpartyJp() {
           </p>
 
           <p>
-            皆様におかれましては ますますご清祥のこととお慶び申し上げます
+            皆様におかれましては<br /> ますますご清祥のことと<br />お慶び申し上げます
           </p>
-
-          <p>このたび 私たちウーレ・スコールと西村奈恵は結婚をすることになりました</p>
 
           <p>
-            つきましては 日頃お世話になっております皆様に
-          </p>
-          <p>
-            感謝を込めて ささやかな小宴を催したく存じます
+            このたび 私たち<br />ウーレ・スコールと西村奈恵は<br />結婚をすることになりました
           </p>
 
-          <p>ご多用中 誠に恐縮ではございますが</p>
-          <p>ぜひご出席をいただきたく ご案内申し上げます</p>
+          <p>
+            つきましては<br />日頃お世話になっております<br />皆様に感謝を込めて ささやかな小宴を催したく存じます
+          </p>
+
+          <p>ご多用中 誠に恐縮ではございますが<br/>ぜひご出席をいただきたく<br/>ご案内申し上げます</p>
 
           <p>
             謹白
@@ -83,21 +81,21 @@ export default function AfterpartyJp() {
           </p>
           <h3>How to get there</h3>
           <p>
-            交通機関から会場までの最短アクセス方法<br />
+            交通機関から会場までの<br/>最短アクセス方法<br />
 
-            大阪メトロ・京阪「淀屋橋駅」「北浜駅」より徒歩5分京阪<br />「なにわ橋駅」より徒歩5分
+            大阪メトロ・京阪<br/>「淀屋橋駅」「北浜駅」より徒歩5分<br />京阪「なにわ橋駅」より徒歩5分
           </p>
           <h3>Party fee</h3>
           <p>会費：７０００円</p>
           <p>
-            ご列席の皆様のご負担や当日の混雑を避けるべく<br />
+            当日の混雑を避けるべく<br />
 
             会費の事前受付をお願いいたします
           </p>
           <p>
-            当日受付での会費受け渡しが不要となりますので<br />
+            当日受付での会費受け渡しが<br/>不要となりますので<br />
 
-            よろしければ当日までにこちらの銀行口座まで<br />
+            よろしければ当日までに<br/>こちらの銀行口座まで<br />
             お振り込みよろしくお願いいたします
           </p>
           <p>
@@ -134,19 +132,19 @@ export default function AfterpartyJp() {
                   {"ご出席"}
                 </label>
               </div>
-            
-            <div class="radio-button">
-              <input
-                name="attending"
-                type="radio"
-                id="notAttending"
-                value="no"
-              >
-              </input>
-              <label for="attending">
-                {"ご欠席"}
-              </label>
-            </div>
+
+              <div class="radio-button">
+                <input
+                  name="attending"
+                  type="radio"
+                  id="notAttending"
+                  value="no"
+                >
+                </input>
+                <label for="attending">
+                  {"ご欠席"}
+                </label>
+              </div>
             </div>
             <button type="submit">{"Send"}</button>
           </form>
