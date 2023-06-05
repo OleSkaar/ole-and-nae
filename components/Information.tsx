@@ -1,11 +1,9 @@
 interface InformationProps {
   isJapanese: boolean;
-  shouldHaveOnlyMainInvitation: boolean;
 }
 
 export default function Information({
   isJapanese,
-  shouldHaveOnlyMainInvitation,
 }: InformationProps) {
   return (
     <div class="information">
@@ -24,7 +22,7 @@ export default function Information({
 
               皆様に大阪でお会いできることを楽しみにしております。<br />
 
-              当日のスケジュールなどのインフォメーションを<br/>こちらでご案内させていただきます。<br />
+              当日のスケジュールなどのインフォメーションを<br />こちらでご案内させていただきます。<br />
 
               ご不明点・ご質問などございましたら、ご遠慮なくご連絡くださいませ。<br />
             </p>
@@ -249,7 +247,8 @@ export default function Information({
               <ul>
                 <li>Paypal: nae.lovefamily@gmail.com</li>
                 <li>Vipps: 91900863</li>
-                <li>IBAN:
+                <li>
+                  IBAN:
                   <ul>
                     <li>BIC: DNBANOKKXXX</li>
                     <li>Electronic IBAN account number: NO8312242386394</li>

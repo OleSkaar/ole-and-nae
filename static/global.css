@@ -73,6 +73,13 @@ button {
   background: none;
   border: 1px solid black;
   background-color: Gainsboro;
+  color: black;
+}
+
+button:active,
+button:focus,
+button:hover {
+  color: black;
 }
 
 img {
