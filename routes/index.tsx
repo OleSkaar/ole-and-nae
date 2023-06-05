@@ -78,7 +78,7 @@ export default function Home(props: PageProps<Data>) {
             src={image}
             alt="A line drawing of Osaka Castle."
           />
-          <p>{data.weHopeYouCanAttend}</p>
+          {/* <p>{data.weHopeYouCanAttend}</p> */}
         </section>
       </Layout>
     </>

@@ -2,7 +2,7 @@ import { asset, Head } from "https://deno.land/x/fresh@1.1.1/runtime.ts";
 import Layout from "../components/Layout.tsx";
 
 export default function Photos() {
-  const title = "Ole and Nae 2023 | Upload your photos!";
+  const title = "Ole and Nae | Upload your photos!";
   const image = "/osaka-castle.webp";
 
   return (
