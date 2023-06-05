@@ -69,6 +69,10 @@ button {
 
 button {
   cursor: pointer;
+  outline: none;
+  background: none;
+  border: 1px solid black;
+  background-color: Gainsboro;
 }
 
 img {
@@ -130,7 +134,7 @@ summary {
   align-items: center;
   border: 5px solid burlywood;
   width: clamp(10ch, 100vw, 75ch);
-  padding: clamp(0px, 5vw, 45px);
+  padding: clamp(15px, 5vw, 45px);
 }
 
 .language-button {
