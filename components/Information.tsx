@@ -10,7 +10,7 @@ export default function Information({
       <h2>Information</h2>
       {isJapanese
         ? (
-          <>
+          <div class="jp-padding">
             <p>皆様</p>
 
             <p>いかがお過ごしでしょうか？</p>
@@ -22,7 +22,9 @@ export default function Information({
 
               皆様に大阪でお会いできることを楽しみにしております。<br />
 
-              当日のスケジュールなどのインフォメーションを<br />こちらでご案内させていただきます。<br />
+              当日のスケジュールなどのインフォメーションを<br />
+              
+              こちらでご案内させていただきます。<br />
 
               ご不明点・ご質問などございましたら、ご遠慮なくご連絡くださいませ。<br />
             </p>
@@ -114,7 +116,7 @@ export default function Information({
 
               京阪「なにわ橋駅」より徒歩5分<br />
             </p>
-          </>
+          </div>
         )
         : (
           <>

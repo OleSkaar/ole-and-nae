@@ -162,3 +162,14 @@ summary {
   display: flex;
   gap: 10px;
 }
+
+/* Hack - figure out real cause of this */ 
+.jp-padding {
+  margin: 15px;
+}
+
+@media only screen and (min-width: 10000px) {
+  .jp-padding {
+    margin: 0;
+  }
+}
