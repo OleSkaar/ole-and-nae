@@ -2,25 +2,18 @@ import { Head,asset } from "https://deno.land/x/fresh@1.1.1/runtime.ts";
 import { Handlers, PageProps } from "https://deno.land/x/fresh@1.1.1/server.ts";
 import Information from "../components/Information.tsx";
 import Layout from "../components/Layout.tsx";
-import { LanguageParameter,Japanese,jpHomePageTranslations,enHomePageTranslations } from "../components/translations.tsx";
+import { LanguageParameter,Japanese } from "../components/translations.tsx";
 
-interface InfoPageTranslations {}
-
-
-interface Data extends InfoPageTranslations {
-    languageParameter: string;
+interface Data {
+  isJapanese: boolean;
 }
 
 export const handler: Handlers<Data> = {
     GET(req, ctx) {
         const parameter = `?${LanguageParameter}=${Japanese}`;
-        const translations = req.url.includes(parameter)
-            ? jpHomePageTranslations
-            : enHomePageTranslations;
+        const isJapanese = req.url.includes(parameter);
 
-        const languageParameter = req.url.includes(parameter) ? parameter : "";
-
-        return ctx.render({ languageParameter, ...translations });
+        return ctx.render({ isJapanese });
     },
 };
 
@@ -44,7 +37,7 @@ export default function Info({ data }: PageProps<Data>) {
             <Layout>
                 <div class="frame">
                     <Information
-                        isJapanese={data.languageParameter === Japanese}
+                        isJapanese={data.isJapanese}
                         shouldHaveOnlyMainInvitation={false}
                     />
                 </div>
