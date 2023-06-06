@@ -70,7 +70,7 @@ export default function Information({
               ２０：００　お開き
             </p>
 
-            <h3>Dresscode</h3>
+            {/*<h3>Dresscode</h3>
             <p>フォーマル/カクテル。</p>
 
             <h3>Welcome Party</h3>
@@ -99,7 +99,7 @@ export default function Information({
               大阪道頓堀よりタクシーで5分
             </p>
 
-            {/*<h3>Afterparty</h3>
+            <h3>Afterparty</h3>
 
             <p>
               披露宴の後、二次会に参加してくださるお客様は迎賓館より二次会会場までシャトルバスにて送迎させていただきます。<br />
