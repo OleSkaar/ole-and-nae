@@ -22,8 +22,6 @@ export default function Info({ data }: PageProps<Data>) {
   const title = "Ole and Nae | Information";
   const image = "/osaka-castle.webp";
 
-  const frameClass = data.isJapanese ? "frame jp-padding" : "frame";
-
   return (
     <>
       <Head>
@@ -37,7 +35,7 @@ export default function Info({ data }: PageProps<Data>) {
         />
       </Head>
       <Layout>
-        <div class={frameClass}>
+        <div class="frame">
           <Information
             isJapanese={data.isJapanese}
           />
