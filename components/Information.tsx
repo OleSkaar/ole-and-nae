@@ -51,7 +51,7 @@ export default function Information({
               ※最寄駅：大阪メトロ谷町線/天満橋駅 3番出口
             </p>
 
-            {/*<h3>Schedule</h3>
+            <h3>Schedule</h3>
             <p>
               15時半よりご来館いただけます。<br />
 
@@ -70,7 +70,7 @@ export default function Information({
               ２０：００　お開き
             </p>
 
-            <h3>Dresscode</h3>
+            {/*<h3>Dresscode</h3>
             <p>フォーマル/カクテル。</p>
 
             <h3>Welcome Party</h3>
