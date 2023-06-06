@@ -11,7 +11,7 @@ export default function Information({
       {isJapanese
         ? (
           <div class="jp-padding">
-            <p>皆様</p>
+            {/* <p>皆様</p>
 
             <p>いかがお過ごしでしょうか？</p>
 
@@ -115,7 +115,7 @@ export default function Information({
               THE BOLY OSAKA 1F大阪メトロ・京阪「淀屋橋駅」「北浜駅」より徒歩5分<br />
 
               京阪「なにわ橋駅」より徒歩5分<br />
-            </p>
+            </p> */}
           </div>
         )
         : (
