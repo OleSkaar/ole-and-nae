@@ -11,7 +11,7 @@ export default function Information({
       {isJapanese
         ? (
           <div class="jp-padding">
-            {/* <p>皆様</p>
+             <p>皆様</p>
 
             <p>いかがお過ごしでしょうか？</p>
 
@@ -29,7 +29,7 @@ export default function Information({
               ご不明点・ご質問などございましたら、ご遠慮なくご連絡くださいませ。<br />
             </p>
 
-            <h3>挙式・披露宴</h3>
+            {/*<h3>挙式・披露宴</h3>
             <p>日時：７月１日土曜日</p>
             <p>
               会場：大阪城西の丸庭園　大阪迎賓館<br />
