@@ -41,7 +41,7 @@ export default function Information({
               タクシーでお越しになられるお客様は乗車時にこちらのご案内をご提示ください。<br />
 
               <a href="https://www.osakacastle.jp/pdf/taxi_wedding.pdf">
-                https://www.osakacastle.jp/pdf/taxi_wedding.pdf
+                taxi_wedding.pdf
               </a>
               <br />
             </p>
