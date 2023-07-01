@@ -133,17 +133,24 @@ export default function Information({ isJapanese }: InformationProps) {
                         We recommend that you take a taxi if possible, as there
                         is a 10-15 minutes walk to the nearest subway station,
                         and it will likely be hot outside around this time. If
-                        you take a taxi, you can show the driver this pdf, which
-                        explains how to get to the venu's taxi entrance:
+                        you take a taxi, you can ask the driver to go this location,
+                        which is the gate closes to the entrance:
+                    </p>
+                    <a href="https://goo.gl/maps/4KMGN9aGQTd3KAJRA">
+                        Kyobashiguchi masugata
+                    </a>
+                    <p>
+                        This pdf has instructions on how to get to the gate (in
+                        Japanese):
                     </p>
                     <a href="https://www.osakacastle.jp/pdf/taxi_wedding.pdf">
                         taxi_wedding.pdf
                     </a>
                     {/* <h3>Plus one</h3>
-            <p>
-              You may bring a guest with you. Let us know in the RSVP form
-              below.
-            </p> */}
+                      <p>
+                        You may bring a guest with you. Let us know in the RSVP form
+                        below.
+                      </p> */}
                     <h3>Schedule</h3>
                     The doors will open at 15:30, one hour before the ceremony.
                     All guests are invited to a tea ceremony in the Japanese
