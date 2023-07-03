@@ -20,12 +20,10 @@ export default function Photos() {
       </Head>
       <Layout renderHeader={true} mainClass="outer-frame">
         <div class="container">
-          <h1>Upload your photos!</h1>
+          <h1>Share your photos!</h1>
           <p>
-            This is a shared photo album for guests to upload their photos from
-            today.
+            If you have any photos from the wedding you'd like to share, you can upload them here.
           </p>
-          <p>Images will be published after the wedding 😃</p>
           <form action={"/upload"} method="POST" encType="multipart/form-data">
             <label for="upload">Choose your images (up to 20)</label>
             <input

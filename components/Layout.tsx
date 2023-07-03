@@ -31,9 +31,9 @@ export default function Layout({
                             <li>
                                 <a href={"/info"}>Info</a>
                             </li>
-                            {/* <li>
+                            <li>
                                 <a href={"/photos"}>Photos</a>
-                            </li> */}
+                            </li>
                         </ul>
                     </nav>
                     <LanguageButton />
